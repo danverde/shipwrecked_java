@@ -26,6 +26,7 @@ public class Shipwreck {
         game1.setTime(17.00);
         game1.setBestTime(7.00);
         String gameInfo = game1.toString();
+        System.out.println(gameInfo);
     }
     
 }
