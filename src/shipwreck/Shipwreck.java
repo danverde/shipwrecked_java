@@ -5,6 +5,7 @@
  */
 package shipwreck;
 
+import ShipwreckPackage.Game;
 import ShipwreckPackage.Player;
 
 /**
@@ -21,6 +22,10 @@ public class Shipwreck {
         player1.setName("John Doe");
         String playerInfo = player1.toString();
         System.out.println(playerInfo);
+        Game game1 = new Game();
+        game1.setTime(17.00);
+        game1.setBestTime(7.00);
+        String gameInfo = game1.toString();
     }
     
 }
