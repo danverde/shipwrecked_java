@@ -5,6 +5,7 @@
  */
 package shipwreck;
 
+import ShipwreckPackage.Game;
 import ShipwreckPackage.Player;
 import ShipwreckPackage.Character;
 import ShipwreckPackage.Weather;
@@ -74,6 +75,12 @@ public class Shipwreck {
         enemy1.setMeat(5);
         String enemyInfo = enemy1.toString();
         System.out.println(enemyInfo);
+        
+        Game game1 = new Game();
+        game1.setTime(17.00);
+        game1.setBestTime(7.00);
+        String gameInfo = game1.toString();
+        System.out.println(gameInfo);
     }
     
 }
