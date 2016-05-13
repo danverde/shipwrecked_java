@@ -9,6 +9,10 @@ import java.io.Serializable;
  *
  * @author Jack
  */
-public class CampScene implements Serializable{
+public class CampScene extends Scene implements Serializable{
+
+    public CampScene() {
+    }
+    
     
 }

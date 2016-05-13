@@ -9,6 +9,10 @@ import java.io.Serializable;
  *
  * @author Jack
  */
-public class FightScene implements Serializable{
+public class FightScene extends Scene implements Serializable{
+
+    public FightScene() {
+    }
+    
     
 }

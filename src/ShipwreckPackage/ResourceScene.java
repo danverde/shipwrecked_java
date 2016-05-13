@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author Jack
  */
-public class ResourceScene implements Serializable{
+public class ResourceScene extends Scene implements Serializable{
     private String resourceType;
     private int resourceAmount;
 
