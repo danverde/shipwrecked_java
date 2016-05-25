@@ -9,7 +9,7 @@ package ControlLayerPackage;
  *
  * @author Jack
  */
-public class CharrecterControl {
+public class CharecterControl {
     public double calcDamage(int enemyDefence, int hungerValue, int attackType){
         
         //calcDamageInFight(hungervalue, attackType,  enemyDefence);
@@ -23,16 +23,16 @@ public class CharrecterControl {
         //if damage ( &lt; 0 ) 
         //return 0;
         //Else Return damage
-        if (hungerValue < -1 & hungerValue > 16){ 
+        if (hungerValue < -1 && hungerValue > 16){ 
             return -1;
         }
-        if (enemyDefence < -1 & enemyDefence > 6){
+        if (enemyDefence < -1 && enemyDefence > 6){
             return -2;
         }
-        if (attackType != 4 || attackType != 8){
+        if (attackType != 4 && attackType != 8){
             return -3;
         }
-        double damage = hungerValue * 0.3 + attackType- enemyDefence;
+        double damage = hungerValue * 0.3 + attackType - enemyDefence;
         if (damage > 0){
             return 0;
         }
