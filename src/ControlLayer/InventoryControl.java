@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ShipwreckPackage;
-import java.io.Serializable;
+package ControlLayer;
+
 /**
  *
- * @author Jack
+ * @author Daniel
  */
-public class FightScene extends Scene implements Serializable{
-
-    public FightScene() {
-    }
-    
+public class InventoryControl {
     
 }

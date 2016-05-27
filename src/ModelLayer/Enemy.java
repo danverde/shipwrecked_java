@@ -3,35 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ShipwreckPackage;
+package ModelLayer;
 
 import java.io.Serializable;
-import java.util.Objects;
-
+        
 /**
  *
- * @author Jack
+ * @author Daniel
  */
-public class Player implements Serializable {
- private String name;
+public class Enemy extends Character implements Serializable{
+    //class instance variables
+    private int meat;
 
-    public Player() {
-    }
- 
-
-    public String getName() {
-        return name;
+    public Enemy() {
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getMeat() {
+        return meat;
+    }
+
+    public void setMeat(int meat) {
+        this.meat = meat;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.name);
+        int hash = 5;
+        hash = 19 * hash + this.meat;
         return hash;
+    }
+
+    @Override
+    public String toString() {
+        return "Enemy{" + super.toString() + "meat=" + meat + '}';
     }
 
     @Override
@@ -45,16 +49,12 @@ public class Player implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Player other = (Player) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        final Enemy other = (Enemy) obj;
+        if (this.meat != other.meat) {
             return false;
         }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + '}';
-    }
+        
     
 }

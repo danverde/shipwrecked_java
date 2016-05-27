@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ShipwreckPackage;
+package ModelLayer;
 import java.io.Serializable;
 /**
  *
  * @author Jack
  */
-public class CampScene extends Scene implements Serializable{
+public class FightScene extends Scene implements Serializable{
 
-    public CampScene() {
+    public FightScene() {
     }
     
     
