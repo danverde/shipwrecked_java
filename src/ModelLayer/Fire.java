@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ShipwreckPackage;
+package ModelLayer;
 
 import java.io.Serializable;
 
@@ -15,8 +15,6 @@ public class Fire extends Item implements Serializable{
     //class instance variables
     private double burnTime;
     private int woodAmount;
-    private boolean attractShip;
-    private boolean burning;
 
     public Fire() {
     }
@@ -37,30 +35,17 @@ public class Fire extends Item implements Serializable{
         this.woodAmount = woodAmount;
     }
 
-    public boolean isAttractShip() {
-        return attractShip;
-    }
-
-    public void setAttractShip(boolean attractShip) {
-        this.attractShip = attractShip;
-    }
-
-    public boolean isBurning() {
-        return burning;
-    }
-
-    public void setBurning(boolean burning) {
-        this.burning = burning;
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.burnTime) ^ (Double.doubleToLongBits(this.burnTime) >>> 32));
+        hash = 23 * hash + this.woodAmount;
+        return hash;
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.burnTime) ^ (Double.doubleToLongBits(this.burnTime) >>> 32));
-        hash = 97 * hash + this.woodAmount;
-        hash = 97 * hash + (this.attractShip ? 1 : 0);
-        hash = 97 * hash + (this.burning ? 1 : 0);
-        return hash;
+    public String toString() {
+        return "Fire{" + super.toString() + "burnTime=" + burnTime + ", woodAmount=" + woodAmount + '}';
     }
 
     @Override
@@ -81,21 +66,8 @@ public class Fire extends Item implements Serializable{
         if (this.woodAmount != other.woodAmount) {
             return false;
         }
-        if (this.attractShip != other.attractShip) {
-            return false;
-        }
-        if (this.burning != other.burning) {
-            return false;
-        }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Fire{" + "burnTime=" + burnTime + ", woodAmount=" + woodAmount + ", attractShip=" + attractShip + ", burning=" + burning + '}';
-    }
-    
-    
-    
+        
     
 }

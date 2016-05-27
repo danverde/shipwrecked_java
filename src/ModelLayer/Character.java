@@ -1,4 +1,4 @@
-package ShipwreckPackage;
+package ModelLayer;
 
 import java.io.Serializable;
 import java.util.Objects;
