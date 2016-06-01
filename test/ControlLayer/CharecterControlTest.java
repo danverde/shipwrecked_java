@@ -43,6 +43,96 @@ public class CharecterControlTest {
         double result = instance.calcDamage(enemyDefence, hungerValue, attackType);
         assertEquals(expResult, result, 0.0);
         
-    }
     
+     
+        System.out.println("calcDamage");
+        System.out.println("Test2");
+        enemyDefence = 3;
+        hungerValue = -1;
+        attackType = 4;
+        expResult = -1.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test3");
+        enemyDefence = 3;
+        hungerValue = 10;
+        attackType = 3;
+        expResult = -3.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test4");
+        enemyDefence = 11;
+        hungerValue = 10;
+        attackType = 4;
+        expResult = -2.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test5");
+        enemyDefence =-1;
+        hungerValue = 10;
+        attackType = 4;
+        expResult = -2.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test6");
+        enemyDefence = 3;
+        hungerValue = 16;
+        attackType = 4;
+        expResult = -1.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test7");
+        enemyDefence = 5;
+        hungerValue = 0;
+        attackType = 4;
+        expResult = 0.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test8");
+        enemyDefence = 3;
+        hungerValue = 15;
+        attackType = 4;
+        expResult = 5.5;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test9");
+        enemyDefence = 3;
+        hungerValue = 0;
+        attackType = 4;
+        expResult = 1.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test10");
+        enemyDefence = 0;
+        hungerValue = 10;
+        attackType = 4;
+        expResult = 7.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+        
+        System.out.println("calcDamage");
+        System.out.println("Test11");
+        enemyDefence = 3;
+        hungerValue = 10;
+        attackType = 4;
+        expResult = 4.0;
+        result = instance.calcDamage(enemyDefence, hungerValue, attackType);
+        assertEquals(expResult, result, 0.0);
+    }
 }
