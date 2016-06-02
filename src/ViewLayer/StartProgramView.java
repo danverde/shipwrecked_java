@@ -5,6 +5,10 @@
  */
 package ViewLayer;
 
+import ControlLayer.GameControl;
+import ModelLayer.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author Daniel
@@ -23,12 +27,58 @@ public class StartProgramView {
 
     private void displayBanner() {
         System.out.println(
-        "hello!!! hopefully this works..."
+        "This is the banner"
         );
     }
 
     public void DisplayStartProgramView() {
-        System.out.println("\n *** displayStartProgramView works ***\n");
+       boolean done = false;
+       do {
+           String playersName = this.getPlayerName();
+           if (playersName.toUpperCase().equals("Q"))
+               return;
+           
+           done = this.doAction(playersName);
+       } while(!done);
     }
+
+    private String getPlayerName() {
+        Scanner keyboard = new Scanner(System.in);
+        String value = "";
+        Boolean valid = false;
+        
+        while (!valid){
+            System.out.println("\n" + this.promptMessage);
+            
+            value = keyboard.nextLine();
+            value = value.trim();
+            
+            if (value.length() < 1){
+                System.out.println("\nInvald value: value cannot be blank");
+                continue;
+            }
+            break;
+            }
+        return value;
+        }
     
+
+    private boolean doAction(String playersName) {
+        if(playersName.length() < 2){
+            System.out.println("\nInvalid players name:" + 
+                    "The name must be greater than 1 character in length.");
+            return false;
+        }
+        Player player = GameControl.createPlayer(playersName);
+        if (player == null){
+            System.out.println("\nError creating the player.");
+            return false;
+        }
+        this.displayNextView(player);
+        return true;
+    }
+
+    private void displayNextView(Player player) {
+        System.out.println("***displayNextView function called***");
+   }
 }
