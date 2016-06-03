@@ -6,6 +6,7 @@
 package ControlLayer;
 
 import ModelLayer.Player;
+import shipwreck.Shipwreck;
 
 /**
  *
@@ -13,9 +14,18 @@ import ModelLayer.Player;
  */
 public class GameControl {
 
-    public static Player createPlayer(String playersName) {
-        System.out.println("*** createPlayer function called***");
-        return new Player();
+    public static Player createPlayer(String name) {
+        if (name == null){
+            return null;
+        }
+        Player player = new Player();
+        player.setName(name);
+        
+        Shipwreck.setPlayer(player);
+        
+        return player;
     }
+
+    
     
 }

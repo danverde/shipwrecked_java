@@ -25,13 +25,29 @@ import ViewLayer.StartProgramView;
  */
 public class Shipwreck {
 
-    /**
-     * @param args the command line arguments
-     */
+    private static Game currentGame = null;
+    private static Player player = null;
+        
     public static void main(String[] args) {
      
     StartProgramView StartProgramView = new StartProgramView();
     StartProgramView.DisplayStartProgramView();
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        Shipwreck.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        Shipwreck.player = player;
     }
     
 }
