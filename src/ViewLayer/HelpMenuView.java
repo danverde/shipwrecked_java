@@ -84,7 +84,7 @@ public class HelpMenuView {
                 this.weatherExplanation();
                 break;
             case "X":
-                this.showGameMenu();
+                this.showMainMenu();
                 break;
             default:
                 System.out.println("\n*** Recheck your keys & enter a valid letter ***");
@@ -117,7 +117,7 @@ public class HelpMenuView {
         System.out.println("*** weatherExplanation function called***");
     }
 
-    private void showGameMenu() {
+    private void showMainMenu() {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();
     }
