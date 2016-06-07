@@ -11,7 +11,7 @@ package ControlLayer;
  */
 public class FireControl {
 
-    public float calculateBurnTime(int woodAmount){
+    public static float calculateBurnTime(int woodAmount){
         //int burnTime = 0;
         //if (woodAmount > 0){
         //    burnTime = woodAmount * 3 / 2;

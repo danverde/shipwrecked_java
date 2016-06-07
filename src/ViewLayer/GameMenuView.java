@@ -16,6 +16,8 @@ public class GameMenuView {
 
     void displayMenu() {
         System.out.println("***DisplayGameMenu function called ***");
+        SignalFireView signalFireMenu = new SignalFireView();
+        signalFireMenu.displaySignalFireView();
     }
     
 }

@@ -5,44 +5,40 @@
  */
 package ViewLayer;
 
+import ModelLayer.Fire;
 import java.util.Scanner;
-
 
 /**
  *
  * @author Daniel
  */
-public class HelpMenuView {
+public class SignalFireView {
     private String menu;
     
-     public HelpMenuView() {
+    public SignalFireView() {
         this.menu = "\n"
                   + "\n----------------------------------" 
-                  + "\n| Help Menu"
+                  + "\n| Signal Fire"
                   + "\n----------------------------------"
-                  + "\nG - Purpose of the Game"
-                  + "\nM - How to Move"
-                  + "\nR - Resource Help"
-                  + "\nK - Combat Help"
-                  + "\nB - Building Help"
-                  + "\nW - Weather Explanation"
-                  + "\nX - Continue On"
+                  + "\nA - Start Fire OR Add Wood"
+                  + "\nS - Check Fire Status"
+                  + "\nB - Board Ship"
+                  + "\nX - Return to Game Menu"
                   + "\n----------------------------------";
 }
 
-    
-    void displayHelpMenu() {
+   void displaySignalFireView() {
         boolean done = false;
         do{
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("C")){
+            if (menuOption.toUpperCase().equals("E")){
                 return;
             }
             done = this.doAction(menuOption);
         } while (!done);
     }
 
-    private String getMenuOption() {
+private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         Boolean valid = false;
@@ -61,27 +57,17 @@ public class HelpMenuView {
             }
         return value;
     }
-
-    public boolean doAction(String menuOption) {
+public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
-            case "G":
-                this.gamePurpose();
+            case "A":
+                this.startAddFire();
                 break;
-            case "M":
-                this.movementHelp();
-                break;
-            case "R":
-                this.resourceHelp();
-                break;
-            case "K":
-                this.combatHelp();
+            case "S":
+                this.fireStatus();
                 break;
             case "B":
-                this.buildingHelp();
-                break;
-            case "W":
-                this.weatherExplanation();
+                this.boardShip();
                 break;
             case "X":
                 return true;
@@ -92,28 +78,17 @@ public class HelpMenuView {
         return true;
     }
 
-    private void gamePurpose() {
-        System.out.println("*** gamePurpose function called***");
+    private void startAddFire() {
+        StartAddFireView startAddFire = new StartAddFireView();
+        startAddFire.startAddFire();
     }
 
-    private void movementHelp() {
-        System.out.println("*** movementHelp function called***");
+    private void fireStatus() {
+        System.out.println("*** fireStatus function called***");
     }
 
-    private void resourceHelp() {
-        System.out.println("*** resourceHelp function called***");
-    }
-
-    private void combatHelp() {
-        System.out.println("*** combatHelp function called***");
-    }
-
-    private void buildingHelp() {
-        System.out.println("*** buildingHelp function called***");
-    }
-
-    private void weatherExplanation() {
-        System.out.println("*** weatherExplanation function called***");
+    private void boardShip() {
+        System.out.println("*** boardShip function called***");
     }
 
 }
