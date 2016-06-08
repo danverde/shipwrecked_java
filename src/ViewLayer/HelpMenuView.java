@@ -93,7 +93,14 @@ public class HelpMenuView {
     }
 
     private void gamePurpose() {
-        System.out.println("*** gamePurpose function called***");
+        System.out.println("*************************************************************************"
+                         + "\n   The purpose of the Game is to survive however you can. Stuck on a"
+                         + "\ntropical Island you can either try and escape on your own by buildng"
+                         + "\na raft & floating to safety. Or maybe building a large signal fire on"
+                         + "\nthe beach will attract help…. Maybe your best bet is to simply wait"
+                         + "\npatiently till someone comes to find you. I mean, after such a big ship"
+                         + "\nwent down SOMEONE’s bound to come looking for survivors… Right?"
+                         + "\n*************************************************************************");
     }
 
     private void movementHelp() {

@@ -27,8 +27,9 @@ public class StartProgramView {
 
     private void displayBanner() {
         System.out.println(
-        "This is the banner"
-        );
+        "======================================================================"
+      + "  INSERT WITTY BANNER MESSAGE HERE"
+      + "======================================================================");
     }
 
     public void DisplayStartProgramView() {

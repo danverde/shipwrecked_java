@@ -38,7 +38,7 @@ private String promptMessage;
         Boolean valid = false;
         
         while (!valid){
-            //System.out.println("\n" + this.menu);
+            System.out.println("\n" + this.promptMessage);
             
             value = keyboard.nextLine();
             value = value.trim();
@@ -56,26 +56,26 @@ private String promptMessage;
     public boolean doAction(int woodAmount){
         //check if fire is already burning
         //check inventory for a match
-        
-    }
-    
-    public int startAddFire(){
-        
-        //Fire fire = new Fire();
-        //check to see if a fire is already burning
-        //check for & use a match
-        
-        //enter amount of wood to be burned
-        
-
+        float burnTime = FireControl.calculateBurnTime(woodAmount);
+        while(burnTime < 0){
+            if(burnTime == -1){
+                System.out.println("Wood amount must be greater than 0.");
+                return false;
+            }
+            else if (burnTime == -2){
+                System.out.println("Burn time too low. Please enter more wood.");
+                return false;
+            }
+            else{
+                System.out.println("A fatal error has occured. Please try again");
+                return false;
+            }
+        }
         System.out.println("The fire will burn for " + 
-                FireControl.calculateBurnTime(woodAmount)+
+                burnTime +
                 " Hours.");
+        return true;
         
-        //fire.setWoodAmount(woodAmount);
-        //fire.calculateBurnTime(woodAmount);*/
-        return 3;
     }
-    
     
 }
