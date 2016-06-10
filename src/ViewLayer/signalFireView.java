@@ -90,6 +90,7 @@ public boolean doAction(String menuOption) {
         
         fire.setWoodAmount();
         
+        
     }
 
     private void fireStatus() {
