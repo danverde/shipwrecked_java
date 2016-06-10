@@ -171,7 +171,7 @@ public class GamePlayMenuView {
     }
 
     private void fireMenu() {
-        signalFireView signalFireView = new signalFireView();
+        SignalFireView signalFireView = new SignalFireView();
         signalFireView.displaySignalFireView();
     }
 
