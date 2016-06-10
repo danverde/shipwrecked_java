@@ -90,8 +90,8 @@ public class MainMenuView {
     private void startNewGame() {
         GameControl.createNewGame(Shipwreck.getPlayer());
         
-        GamePlayMenuView gameMenu = new GamePlayMenuView();
-        gameMenu.displayGameMenu();
+        GamePlayMenuView gamePlayMenuView = new GamePlayMenuView();
+        gamePlayMenuView.displayGameMenu();
     }
 
     private void saveGame() {
