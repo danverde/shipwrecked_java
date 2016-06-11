@@ -23,6 +23,7 @@ public class CharecterControl {
         //if damage ( &lt; 0 ) 
         //return 0;
         //Else Return damage
+        
         if (hungerValue < 0 || hungerValue > 15){ 
             return -1;
         }
