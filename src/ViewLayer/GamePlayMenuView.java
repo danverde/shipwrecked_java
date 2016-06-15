@@ -5,18 +5,15 @@
  */
 package ViewLayer;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Jack
  */
-public class GamePlayMenuView {
+public class GamePlayMenuView extends View{
     
-    private String gameMenu;
     
     public GamePlayMenuView(){
-        this.gameMenu = "\n"
+        super      ("\n"
                   + "\n----------------------------------" 
                   + "\n| Game Menu"
                   + "\n----------------------------------"
@@ -36,40 +33,11 @@ public class GamePlayMenuView {
                   + "\nH - Help Menu"
                   + "\nS - Save Game"
                   + "\nQ - Quit Game"
-                  + "\n----------------------------------";
+                  + "\n----------------------------------");
 }
     
-    public void displayGameMenu() {
-        boolean done = false;
-        do{
-            String gameMenuOption = this.getGameMenuOption();
-            if (gameMenuOption.toUpperCase().equals("Q")){
-                return;
-            }
-            done = this.doAction(gameMenuOption);
-        } while (!done);
-    }
     
-        private String getGameMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        Boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.gameMenu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvald value: value cannot be blank");
-                continue;
-            }
-            break;
-            }
-        return value;
-    }
-    
+    @Override
     public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
@@ -127,7 +95,7 @@ public class GamePlayMenuView {
         
       private void openHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenu();
+        helpMenuView.display();
     }
     private void openMainMenu() {
         MainMenuView mainMenuView = new MainMenuView();
@@ -172,7 +140,7 @@ public class GamePlayMenuView {
 
     private void fireMenu() {
         SignalFireView signalFireView = new SignalFireView();
-        signalFireView.displaySignalFireView();
+        signalFireView.display();
     }
 
     private void timeMenu() {

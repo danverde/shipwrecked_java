@@ -4,19 +4,15 @@
  * and open the template in the editor.
  */
 package ViewLayer;
-
-import java.util.Scanner;
-
-
 /**
  *
  * @author Daniel
  */
-public class HelpMenuView {
-    private String menu;
+public class HelpMenuView extends View {
+    
     
      public HelpMenuView() {
-        this.menu = "\n"
+        super   ("\n"
                   + "\n----------------------------------" 
                   + "\n| Help Menu"
                   + "\n----------------------------------"
@@ -27,41 +23,11 @@ public class HelpMenuView {
                   + "\nB - Building Help"
                   + "\nW - Weather Explanation"
                   + "\nX - Continue On"
-                  + "\n----------------------------------";
+                  + "\n----------------------------------");
 }
 
     
-    void displayHelpMenu() {
-        boolean done = false;
-        do{
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("C")){
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        Boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvald value: value cannot be blank");
-                continue;
-            }
-            break;
-            }
-        return value;
-    }
-
+    @Override
     public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){

@@ -12,11 +12,11 @@ import java.util.Scanner;
  *
  * @author Daniel
  */
-public class SignalFireView {
+public class SignalFireView extends View {
     private String menu;
     
     public SignalFireView() {
-        this.menu = "\n"
+        super ("\n"
                   + "\n----------------------------------" 
                   + "\n| Signal Fire"
                   + "\n----------------------------------"
@@ -24,40 +24,12 @@ public class SignalFireView {
                   + "\nS - Check Fire Status"
                   + "\nB - Board Ship"
                   + "\nX - Return to Game Menu"
-                  + "\n----------------------------------";
+                  + "\n----------------------------------");
 }
 
-   void displaySignalFireView() {
-        boolean done = false;
-        do{
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")){
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-
-private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        Boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.menu);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            if (value.length() < 1){
-                System.out.println("\nInvald value: value cannot be blank");
-                continue;
-            }
-            break;
-            }
-        return value;
-    }
-public boolean doAction(String menuOption) {
+ 
+    @Override
+    public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
             case "A":
@@ -80,7 +52,7 @@ public boolean doAction(String menuOption) {
 
     private void startAddFire() {
         StartAddFireView startAddFire = new StartAddFireView();
-        startAddFire.displayStartAddFire();
+        startAddFire.display();
     }
 
     private void fireStatus() {

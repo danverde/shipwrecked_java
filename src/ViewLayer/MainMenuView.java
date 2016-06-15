@@ -58,7 +58,7 @@ public class MainMenuView extends View {
         GameControl.createNewGame(Shipwreck.getPlayer());
         
         GamePlayMenuView gamePlayMenuView = new GamePlayMenuView();
-        gamePlayMenuView.displayGameMenu();
+        gamePlayMenuView.display();
     }
 
     private void saveGame() {
@@ -75,7 +75,7 @@ public class MainMenuView extends View {
 
     private void openHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenu();
+        helpMenuView.display();
     }
     
 }
