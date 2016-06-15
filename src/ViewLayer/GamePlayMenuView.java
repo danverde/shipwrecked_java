@@ -131,7 +131,7 @@ public class GamePlayMenuView {
     }
     private void openMainMenu() {
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 
     private void viewResources() {
