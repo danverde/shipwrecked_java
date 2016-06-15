@@ -12,50 +12,20 @@ import java.util.Scanner;
  *
  * @author Daniel
  */
-public class StartAddFireView {
-private String promptMessage;
+public class StartAddFireView extends View{
 
     public StartAddFireView() {
-        this.promptMessage = "How Much Wood do you want to burn?";
+        super("How Much Wood do you want to burn?");
     }
     
-    public void displayStartAddFire(){
-        boolean done = false;
-        do{
-            //String menuOption = this.getInput();
-            int woodAmount = this.getInput();
-            /*if (menuOption.toUpperCase().equals("E")){
-                return;
-            }*/
-            done = this.doAction(woodAmount);
-        } while (!done);
-    }
-    
-    
-    public int getInput(){
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        Boolean valid = false;
-        
-        while (!valid){
-            System.out.println("\n" + this.promptMessage);
-            
-            value = keyboard.nextLine();
-            value = value.trim();
-            int woodAmount = Integer.parseInt(value);
-            
-            if (woodAmount <= 0){
-                System.out.println("\nInvald value: Must be greater than 0");
-                continue;
-            }
-            return woodAmount;
-            }
-        return 0;
-    }
-    
-    public boolean doAction(int woodAmount){
+    @Override
+    public boolean doAction(String sWoodAmount){
+        // parse input
+        int woodAmount = Integer.parseInt(sWoodAmount);
         //check if fire is already burning
         //check inventory for a match
+        
+        
         float burnTime = FireControl.calculateBurnTime(woodAmount);
         while(burnTime < 0){
             if(burnTime == -1){

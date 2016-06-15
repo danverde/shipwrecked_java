@@ -31,7 +31,7 @@ public class Shipwreck {
     public static void main(String[] args) {
      
     StartProgramView StartProgramView = new StartProgramView();
-    StartProgramView.DisplayStartProgramView();
+    StartProgramView.display();
     }
 
     public static Game getCurrentGame() {
