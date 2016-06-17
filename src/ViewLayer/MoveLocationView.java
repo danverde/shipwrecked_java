@@ -37,11 +37,5 @@ public class MoveLocationView extends View{
        MapControl.moveCharacter(direction, distance);
        return true;
        
-    }
-
-    private void getDistance(String direction) {
-        //this.getInput();
-        System.out.println("get distance ran");
-    }
-    
+    } 
 }
