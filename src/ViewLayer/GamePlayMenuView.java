@@ -84,8 +84,7 @@ public class GamePlayMenuView extends View{
                 this.saveMenu();
                 break;
             case "O":
-                this.openMainMenu();
-                break;
+                return true;
             default:
                 System.out.println("\n*** Recheck your keys & enter a valid letter ***");
                 break;
@@ -96,10 +95,6 @@ public class GamePlayMenuView extends View{
       private void openHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
-    }
-    private void openMainMenu() {
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
     }
 
     private void viewResources() {
@@ -119,7 +114,8 @@ public class GamePlayMenuView extends View{
     }
 
     private void moveMenu() {
-        System.out.println("\n*** moveMenu function called ***");
+        MoveLocationView moveLocation = new MoveLocationView();
+        moveLocation.display();
     }
 
     private void buildMenu() {
