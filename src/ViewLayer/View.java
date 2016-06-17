@@ -28,7 +28,7 @@ public abstract class View implements ViewInterface {
         boolean done = false;
         do{
             String value = this.getInput();
-            if (value.toUpperCase().equals("D")){
+            if (value.toUpperCase().equals("X")){
                 return;
             }
             done = this.doAction(value);

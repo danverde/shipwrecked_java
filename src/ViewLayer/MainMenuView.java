@@ -23,7 +23,7 @@ public class MainMenuView extends View {
                   + "\nN - New Game"
                   + "\nS - Save Game"
                   + "\nC - Continue Game"
-                  + "\nD - End it all (Exit Game)"
+                  + "\nX - End it all (Exit Game)"
                   + "\nH - Help Menu"
                   + "\n----------------------------------");
 }
@@ -38,10 +38,10 @@ public class MainMenuView extends View {
             case "S":
                 this.saveGame();
                 break;
-            case "C":
+            case "X":
                 this.continueGame();
                 break;
-            case "D":
+            case "E":
                 this.exitGame();
                 break;
             case "H":

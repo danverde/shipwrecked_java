@@ -103,7 +103,8 @@ public class GamePlayMenuView extends View{
     }
 
     private void viewResources() {
-        System.out.println("\n*** viewResources function called ***");    
+        CollectResourceView CollectFoodView = new CollectResourceView();
+        CollectFoodView.display();
     }
 
     private void viewTools() {
