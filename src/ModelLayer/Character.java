@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Character implements Serializable {
     
     //class instance variables
+    private String name;
     private String type;
     private int health;
     private int coordinates;
@@ -66,6 +67,15 @@ public class Character implements Serializable {
     public void setHunger(int hunger) {
         this.hunger = hunger;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     
     @Override
     public int hashCode() {
