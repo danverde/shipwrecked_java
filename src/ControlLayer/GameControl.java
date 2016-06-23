@@ -5,7 +5,10 @@
  */
 package ControlLayer;
 
+import ModelLayer.Game;
+import ModelLayer.Map;
 import ModelLayer.Player;
+import ModelLayer.Weather;
 import shipwreck.Shipwreck;
 
 /**
@@ -27,7 +30,13 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        System.out.println("***createNewGame function called ***");
+        Game game = new Game();
+        Shipwreck.setCurrentGame(game);
+        game.setPlayer(player);
+        Map map = new Map();
+        game.setMap(map);
+        game.setTime(0);
+        game.setBestTime(0)
     }
 
     
