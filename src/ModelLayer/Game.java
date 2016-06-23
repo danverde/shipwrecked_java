@@ -13,12 +13,33 @@ import java.io.Serializable;
 public class Game implements Serializable {
     private double time;
     private double bestTime;
+    private Map map;
+    private Weather[] weather;
+    private Player player;
 
     public Game() {
     }
-    
-    
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    
+    
+    public Weather[] getWeather() {
+        return weather;
+    }
+
+    public void setWeather(Weather[] weather) {
+        this.weather = weather;
+    }
+    
+    
+    
     public double getTime() {
         return time;
     }
@@ -34,6 +55,16 @@ public class Game implements Serializable {
     public void setBestTime(double bestTime) {
         this.bestTime = bestTime;
     }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+    
+    
 
     @Override
     public int hashCode() {

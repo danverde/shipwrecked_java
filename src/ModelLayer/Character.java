@@ -16,10 +16,48 @@ public class Character implements Serializable {
     private int attack;
     private int defense;
     private int hunger;
+    private Inventory inventory;
+    private Location location;
+    private Game[] game;
+    private Player [] player;
 
     public Character() {
     }
-  
+
+    public Player[] getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player[] player) {
+        this.player = player;
+    }
+    
+    
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+    
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
+    
     public String getType() {
         return type;
     }

@@ -16,12 +16,21 @@ public class Scene implements Serializable{
     private double TimeTravel;
     private boolean blockedLocation;
     private String displaySymbol;
+    private Location [] location;
 
     public Scene() {
     }
-    
-    
 
+    public Location[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location[] location) {
+        this.location = location;
+    }
+    
+    
+    
     public String getDescription() {
         return description;
     }

@@ -16,10 +16,19 @@ public class Weather implements Serializable{
     //class instance variables
     private double weatherDuration;
     private String weatherType;
+    private Game[] game;
 
     public Weather() {
     }
 
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+    
     public double getWeatherDuration() {
         return weatherDuration;
     }

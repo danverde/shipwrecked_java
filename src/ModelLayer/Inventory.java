@@ -14,10 +14,19 @@ import java.io.Serializable;
 public class Inventory implements Serializable{
     //class instance variables
     private int size;
+    private Character character;
 
     public Inventory() {
     }
 
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+    
     public int getSize() {
         return size;
     }

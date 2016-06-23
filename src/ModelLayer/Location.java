@@ -15,12 +15,30 @@ public class Location implements Serializable{
     private int columnNumber;
     private int rowNumber;
     private boolean visited;
+    private Scene scene;
+    private Character[] character;
 
     public Location() {
     }
-    
-    
 
+    public Character[] getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character[] character) {
+        this.character = character;
+    }
+    
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    
+    
     public int getColumnNumber() {
         return columnNumber;
     }

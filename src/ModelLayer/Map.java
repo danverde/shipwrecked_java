@@ -14,12 +14,21 @@ public class Map implements Serializable{
     
     private int columnCount;
     private int rowCount;
+    private Game[] game;
 
     public Map() {
     }
-    
-    
 
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+    
+    
+    
     public int getColumnCount() {
         return columnCount;
     }

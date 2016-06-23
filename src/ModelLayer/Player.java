@@ -14,11 +14,29 @@ import java.util.Objects;
  */
 public class Player implements Serializable {
  private String name;
+ private Game[] game;
+ private Character character;
 
     public Player() {
     }
- 
 
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+    
+    
     public String getName() {
         return name;
     }
