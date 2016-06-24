@@ -28,7 +28,7 @@ public class GameControl {
         
         return player;
     }
-
+    
     public static void createNewGame(Player player) {
         Game game = new Game();//create game
         Shipwreck.setCurrentGame(game);//Save game
@@ -46,6 +46,9 @@ public class GameControl {
         Item[] itemList = gameControl.createItemList;
         game.setTime(0);//save time
         game.setBestTime(0); //save best time
+    }
+        public static item[] creatItemList() {
+        System.out.println("*** ItemList Created ***");
     }
 
     

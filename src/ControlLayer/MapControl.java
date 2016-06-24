@@ -10,7 +10,7 @@ package ControlLayer;
  * @author Daniel
  */
 public class MapControl {
-    
+    public static map createMap()
     public static  void moveCharacter(char direction, int distance){
         System.out.println("*** MoveCharacter function called ***");
     }
