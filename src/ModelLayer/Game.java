@@ -16,10 +16,19 @@ public class Game implements Serializable {
     private Map map;
     private Weather[] weather;
     private Player player;
+    private Item[] item;
 
     public Game() {
     }
 
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+    
     public Player getPlayer() {
         return player;
     }

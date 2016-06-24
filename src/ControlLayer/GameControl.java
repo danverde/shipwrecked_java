@@ -30,13 +30,22 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        Game game = new Game();
-        Shipwreck.setCurrentGame(game);
-        game.setPlayer(player);
-        Map map = new Map();
-        game.setMap(map);
-        game.setTime(0);
-        game.setBestTime(0)
+        Game game = new Game();//create game
+        Shipwreck.setCurrentGame(game);//Save game
+        
+        game.setPlayer(player); //save player
+        
+        Map map = MapControl.createMap;//create new map
+        game.setMap(map);//save map
+        
+        MapControl.movePlayerToStartLocation(map);// place player in start location
+        
+        Weather Weather = new Weather();
+        game.setWeather(); 
+        
+        Item[] itemList = gameControl.createItemList;
+        game.setTime(0);//save time
+        game.setBestTime(0); //save best time
     }
 
     
