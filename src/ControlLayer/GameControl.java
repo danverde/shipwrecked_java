@@ -6,6 +6,7 @@
 package ControlLayer;
 
 import ModelLayer.Game;
+import ModelLayer.Item;
 import ModelLayer.Map;
 import ModelLayer.Player;
 import ModelLayer.Weather;
@@ -35,20 +36,26 @@ public class GameControl {
         
         game.setPlayer(player); //save player
         
-        Map map = MapControl.createMap;//create new map
+        Weather weather = new Weather();
+        game.setWeather(weather); 
+        
+        Item[] itemList = GameControl.createItemList(player);
+        game.setTime(0);//save time
+        game.setBestTime(0); //save best timeMap map = MapControl.createMap;//create new map
+        
+        Map map = MapControl.createMap();//create new map
         game.setMap(map);//save map
         
         MapControl.movePlayerToStartLocation(map);// place player in start location
-        
-        Weather Weather = new Weather();
-        game.setWeather(); 
-        
-        Item[] itemList = gameControl.createItemList;
-        game.setTime(0);//save time
-        game.setBestTime(0); //save best time
     }
-        public static item[] creatItemList() {
-        System.out.println("*** ItemList Created ***");
+
+    
+        public static Item[] createItemList(Player player) {
+        Item[] itemList = new Item[];
+        
+        itemList wood = new Item[];
+        item.
+        
     }
 
     

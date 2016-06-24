@@ -21,14 +21,6 @@ public class Weather implements Serializable{
     public Weather() {
     }
 
-    public Game[] getGame() {
-        return game;
-    }
-
-    public void setGame(Game[] game) {
-        this.game = game;
-    }
-    
     public double getWeatherDuration() {
         return weatherDuration;
     }
@@ -43,6 +35,15 @@ public class Weather implements Serializable{
 
     public void setWeatherType(String weatherType) {
         this.weatherType = weatherType;
+    }
+    
+    
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
     }
 
     @Override
