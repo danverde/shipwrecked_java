@@ -62,7 +62,8 @@ public class Scene implements Serializable{
     public void setDisplaySymbol(String displaySymbol) {
         this.displaySymbol = displaySymbol;
     }
-
+    
+    
     @Override
     public int hashCode() {
         int hash = 5;
