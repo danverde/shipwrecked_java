@@ -14,7 +14,7 @@ public class Game implements Serializable {
     private double time;
     private double bestTime;
     private Map map;
-    private Weather[] weather;
+    private Weather weather;
     private Player player;
     private Item[] item;
 
@@ -37,17 +37,13 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    
-    
-    public Weather[] getWeather() {
+    public Weather getWeather() {
         return weather;
     }
 
-    public void setWeather(Weather[] weather) {
+    public void setWeather(Weather weather) {
         this.weather = weather;
-    }
-    
-    
+    }  
     
     public double getTime() {
         return time;
