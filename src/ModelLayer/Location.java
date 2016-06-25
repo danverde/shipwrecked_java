@@ -5,6 +5,7 @@
  */
 package ModelLayer;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,20 +13,20 @@ import java.io.Serializable;
  */
 public class Location implements Serializable{
     
-    private int columnNumber;
-    private int rowNumber;
+    private int column;
+    private int row;
     private boolean visited;
     private Scene scene;
-    private Character[] character;
+    private ArrayList<Character> character;
 
     public Location() {
     }
 
-    public Character[] getCharacter() {
+    public ArrayList<Character> getCharacter() {
         return character;
     }
 
-    public void setCharacter(Character[] character) {
+    public void setCharacter(ArrayList<Character> character) {
         this.character = character;
     }
     
@@ -39,20 +40,20 @@ public class Location implements Serializable{
     
     
     
-    public int getColumnNumber() {
-        return columnNumber;
+    public int getColumn() {
+        return column;
     }
 
-    public void setColumnNumber(int columnNumber) {
-        this.columnNumber = columnNumber;
+    public void setColumn(int columnNumber) {
+        this.column = column;
     }
 
-    public int getRowNumber() {
-        return rowNumber;
+    public int getRow() {
+        return row;
     }
 
-    public void setRowNumber(int rowNumber) {
-        this.rowNumber = rowNumber;
+    public void setRow(int rowNumber) {
+        this.row = row;
     }
 
     public boolean isVisited() {
@@ -66,8 +67,8 @@ public class Location implements Serializable{
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 83 * hash + this.columnNumber;
-        hash = 83 * hash + this.rowNumber;
+        hash = 83 * hash + this.column;
+        hash = 83 * hash + this.row;
         hash = 83 * hash + (this.visited ? 1 : 0);
         return hash;
     }
@@ -84,10 +85,10 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (this.columnNumber != other.columnNumber) {
+        if (this.column != other.column) {
             return false;
         }
-        if (this.rowNumber != other.rowNumber) {
+        if (this.row != other.row) {
             return false;
         }
         if (this.visited != other.visited) {
@@ -98,7 +99,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "columnNumber=" + columnNumber + ", rowNumber=" + rowNumber + ", visited=" + visited + '}';
+        return "Location{" + "column=" + column + ", row=" + row + ", visited=" + visited + '}';
     }
     
     

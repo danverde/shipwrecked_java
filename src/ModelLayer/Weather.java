@@ -19,6 +19,8 @@ public class Weather implements Serializable{
     private Game[] game;
 
     public Weather() {
+    this.weatherDuration = 5;
+    this.weatherType = "Sunny";
     }
 
     public double getWeatherDuration() {

@@ -16,7 +16,7 @@ public class Scene implements Serializable{
     private double TimeTravel;
     private boolean blockedLocation;
     private String displaySymbol;
-    private Location [] location;
+    private Location[] location;
 
     public Scene() {
     }

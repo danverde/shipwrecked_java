@@ -12,11 +12,42 @@ import java.io.Serializable;
  */
 public class Map implements Serializable{
     
-    private int columnCount;
-    private int rowCount;
+    private int numCols;
+    private int numRows;
     private Game[] game;
+    private Location[][] locations;
 
-    public Map() {
+    public Map(int numRows, int numCols) {
+        
+        if(numRows < 1 || numCols < 1)
+        {
+            System.out.println("Number of Rows & Columns must be greater than 1");
+            return;
+        }
+        
+        this.numRows = numRows;
+        this.numCols = numCols;
+        
+        this.locations = new Location[numRows][numCols];
+        
+        for (int row = 0; row < numRows; row++){
+            for (int col = 0; col < numCols; col++){
+                Location location = new Location();
+                location.setColumn(col);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                locations[row][col] = location;
+            }
+        }
+    }
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
 
     public Game[] getGame() {
@@ -26,30 +57,28 @@ public class Map implements Serializable{
     public void setGame(Game[] game) {
         this.game = game;
     }
-    
-    
-    
-    public int getColumnCount() {
-        return columnCount;
+
+    public int getNumCols() {
+        return numCols;
     }
 
-    public void setColumnCount(int columnCount) {
-        this.columnCount = columnCount;
+    public void setNumCols(int numCols) {
+        this.numCols = numCols;
     }
 
-    public int getRowCount() {
-        return rowCount;
+    public int getNumRows() {
+        return numRows;
     }
 
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
+    public void setNumRows(int numRows) {
+        this.numRows = numRows;
     }
-
+  
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + this.columnCount;
-        hash = 89 * hash + this.rowCount;
+        hash = 89 * hash + this.numCols;
+        hash = 89 * hash + this.numRows;
         return hash;
     }
 
@@ -65,10 +94,10 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (this.columnCount != other.columnCount) {
+        if (this.numCols != other.numCols) {
             return false;
         }
-        if (this.rowCount != other.rowCount) {
+        if (this.numRows != other.numRows) {
             return false;
         }
         return true;
@@ -76,7 +105,7 @@ public class Map implements Serializable{
 
     @Override
     public String toString() {
-        return "Map{" + "columnCount=" + columnCount + ", rowCount=" + rowCount + '}';
+        return "Map{" + "columnCount=" + numCols + ", rowCount=" + numRows + '}';
     }
     
     

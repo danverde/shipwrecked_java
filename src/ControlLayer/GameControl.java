@@ -9,6 +9,7 @@ import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Map;
 import ModelLayer.Player;
+import ModelLayer.Scene;
 import ModelLayer.Weather;
 import shipwreck.Shipwreck;
 
@@ -46,60 +47,62 @@ public class GameControl {
         Map map = MapControl.createMap();//create new map
         game.setMap(map);//save map
         
-        MapControl.movePlayerToStartLocation(map);// place player in start location
+        MapControl.moveCharacterToStartLocation(map);// place player in start location
     }
 
-    
-    public enum Item{
-    Wood,
-    Match,
-    Spear,
+    static void assignSceneLocations(Map map, Scene[] scenes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+      public enum Items{
+       Wood,
+       Match,
+       Spear,
+       Meat,
+       Fruit,
+       Vine,
+       Stone;
+    } 
     
         public static Item[] createItemList(Player player) {
         Item[] itemList = new Item[6];
-        
-        
-        
+              
         Item wood = new Item();
         wood.setItemType("Wood");
         wood.setQuantity(0);
-        itemList[0] = wood;
+        itemList[Items.Wood.ordinal()] = wood;
         
         Item match = new Item();
         match.setItemType("Match");
         match.setQuantity(3);
-        itemList[1] = match;
+        itemList[Items.Match.ordinal()] = match;
         
         Item spear = new Item();
         spear.setItemType("Spear");
         spear.setQuantity(0);
-        itemList[2] = spear;
+        itemList[Items.Spear.ordinal()] = spear;
         
         Item meat = new Item();
         meat.setItemType("Meat");
         meat.setQuantity(0);
-        itemList[3] = meat;
+        itemList[Items.Meat.ordinal()] = meat;
         
         Item fruit = new Item();
         fruit.setItemType("Fruit");
         fruit.setQuantity(0);
-        itemList [4] = fruit;
+        itemList [Items.Fruit.ordinal()] = fruit;
         
         Item vine = new Item();
         vine.setItemType("Vine");
         vine.setQuantity(0);
-        itemList[5] = vine;
+        itemList[Items.Vine.ordinal()] = vine;
         
         Item stone = new Item();
         stone.setItemType("Stone");
         stone.setQuantity(0);
-        itemList[6] = stone;
+        itemList[Items.Stone.ordinal()] = stone;
         
         return itemList;
     }
-
-    
-    
+   
 }
