@@ -5,6 +5,10 @@
  */
 package ViewLayer;
 
+import ModelLayer.Game;
+import ModelLayer.Item;
+import shipwreck.Shipwreck;
+
 /**
  *
  * @author Jack
@@ -17,8 +21,7 @@ public class GamePlayMenuView extends View{
                   + "\n----------------------------------" 
                   + "\n| Game Menu"
                   + "\n----------------------------------"
-                  + "\nR - View food/ resources"
-                  + "\nI - View Tools"
+                  + "\nR - View Inventory"
                   + "\nF - Hunt for Food"
                   + "\nM - View Map / Current Location"
                   + "\nL - Move to Different Location"
@@ -42,10 +45,7 @@ public class GamePlayMenuView extends View{
         menuOption = menuOption.toUpperCase();
         switch (menuOption){
             case "R":
-                this.viewResources();
-                break;
-            case "I":
-                this.viewTools();
+                this.viewInventory();
                 break;
             case "X":
                 this.huntFood();
@@ -97,13 +97,24 @@ public class GamePlayMenuView extends View{
         helpMenuView.display();
     }
 
-    private void viewResources() {
+    private void viewInventory() {
         CollectResourceView CollectFoodView = new CollectResourceView();
         CollectFoodView.display();
-    }
-
-    private void viewTools() {
-        System.out.println("\n*** viewTools function called ***");    
+        
+        StringBuilder line;
+        
+        Game game = Shipwreck.getCurrentGame();
+        Item[] inventory = game.getItem();
+        
+        System.out.println("\nLIST OF INVENTORY ITEMS.");
+        line = new StringBuilder("                                        ");
+        line.insert(0,"DESCRIPTION");
+        line.insert(20,"REQUIRED");
+        line.insert(30,"IN STOCK");
+        System.out.println(line.toString());
+        
+        for (Item item: itemList){
+            
     }
 
     private void huntFood() {
