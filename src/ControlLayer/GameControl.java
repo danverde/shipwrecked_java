@@ -50,12 +50,54 @@ public class GameControl {
     }
 
     
+    public enum Item{
+    Wood,
+    Match,
+    Spear,
+    }
+    
+    
         public static Item[] createItemList(Player player) {
-        Item[] itemList = new Item[];
+        Item[] itemList = new Item[6];
         
-        itemList wood = new Item[];
-        item.
         
+        
+        Item wood = new Item();
+        wood.setItemType("Wood");
+        wood.setQuantity(0);
+        itemList[0] = wood;
+        
+        Item match = new Item();
+        match.setItemType("Match");
+        match.setQuantity(3);
+        itemList[1] = match;
+        
+        Item spear = new Item();
+        spear.setItemType("Spear");
+        spear.setQuantity(0);
+        itemList[2] = spear;
+        
+        Item meat = new Item();
+        meat.setItemType("Meat");
+        meat.setQuantity(0);
+        itemList[3] = meat;
+        
+        Item fruit = new Item();
+        fruit.setItemType("Fruit");
+        fruit.setQuantity(0);
+        itemList [4] = fruit;
+        
+        Item vine = new Item();
+        vine.setItemType("Vine");
+        vine.setQuantity(0);
+        itemList[5] = vine;
+        
+        Item stone = new Item();
+        stone.setItemType("Stone");
+        stone.setQuantity(0);
+        itemList[6] = stone;
+        
+        return itemList;
     }
 
     
