@@ -117,12 +117,25 @@ public class GamePlayMenuView extends View{
             
     }
 
-    private void huntFood() {
+    private void huntFood(){
         System.out.println("\n*** huntFood function called ***");    
     }
 
     private void viewMap() {
-        System.out.println("\n*** viewMap function called ***");
+        MapControl mapControl = new MapControl();
+        mapControl.display();
+        
+        StringBuilder line;
+        
+        Game game = Shipwreck.getCurrentGame();
+        Location[][] locations = mapControl.map.getLocations();
+        
+        System.out.println("\nLIST OF INVENTORY ITEMS.");
+        line = new StringBuilder("                                        ");
+        line.insert(0,"DESCRIPTION");
+        line.insert(20,"REQUIRED");
+        line.insert(30,"IN STOCK");
+        System.out.println(line.toString());
     }
 
     private void moveMenu() {
