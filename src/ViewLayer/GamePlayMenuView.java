@@ -109,11 +109,15 @@ public class GamePlayMenuView extends View{
         System.out.println("\nLIST OF INVENTORY ITEMS.");
         line = new StringBuilder("                                        ");
         line.insert(0,"DESCRIPTION");
-        line.insert(20,"REQUIRED");
-        line.insert(30,"IN STOCK");
+        line.insert(20,"IN STOCK");
         System.out.println(line.toString());
         
-        for (Item item: itemList){
+        for (Item item: inventory){
+            line = new StringBuilder("                            ");
+            line.insert(0, item.getItemType());
+            line.insert(23, item.getQuantity());
+        }
+        System.out.println(line.toString());
             
     }
 
