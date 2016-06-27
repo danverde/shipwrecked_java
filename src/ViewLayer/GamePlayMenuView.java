@@ -5,6 +5,7 @@
  */
 package ViewLayer;
 
+import ControlLayer.GameControl;
 import ControlLayer.MapControl;
 import ModelLayer.Game;
 import ModelLayer.Item;
@@ -137,8 +138,8 @@ public class GamePlayMenuView extends View{
             if (location.setVisited = false){
                 System.out.println(" ?? ");
             }
-            System.out.println(MapControl.DisplaySymbol);*/
-        return 0;
+            System.out.println(MapControl.DisplaySymbol);
+        
     }
 
     private void moveMenu() {
