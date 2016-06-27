@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class Location implements Serializable{
     
-    private int column;
-    private int row;
-    private boolean visited;
+    public int column;
+    public int row;
+    public boolean visited;
     private Scene scene;
     private ArrayList<Character> character;
 

@@ -9,6 +9,7 @@ import ControlLayer.GameControl;
 import ControlLayer.MapControl;
 import ModelLayer.Game;
 import ModelLayer.Item;
+import ModelLayer.Location;
 import ModelLayer.Map;
 import shipwreck.Shipwreck;
 
@@ -128,18 +129,19 @@ public class GamePlayMenuView extends View{
     }
     
     private long viewMap() {
-        Game game = Shipwreck.getCurrentGame();
-
-    public long viewMap() {
-        /*
-        MapControl mapControl = new MapControl();
-        for (int i = 0; i < MapControl.length; i++);
-            for (int j = 0; j< MapControl[i].length; j++);
-            if (location.setVisited = false){
+        Shipwreck.getCurrentGame().getMap().getLocations();
+        
+        System.out.println("The Map");
+        System.out.println("1|2|3|4|4");
+        
+        Location location= new Location();
+        for (int i = 0; i < location.column; i++);
+            for (int j = 0; j< location.row; j++);
+            if (location.visited = false){
                 System.out.println(" ?? ");
             }
             System.out.println(MapControl.DisplaySymbol);
-        
+        return 0;
     }
 
     private void moveMenu() {

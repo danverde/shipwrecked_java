@@ -15,7 +15,7 @@ public class Scene implements Serializable{
     private String description;
     private double TimeTravel;
     private boolean blockedLocation;
-    private String displaySymbol;
+    public String displaySymbol;
     private Location[] location;
 
     public Scene() {
@@ -101,9 +101,13 @@ public class Scene implements Serializable{
         return true;
     }
 
-    @Override
+    
     public String toString() {
         return "Scene{" + "description=" + description + ", TimeTravel=" + TimeTravel + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
+    }
+
+    public void setVisited(boolean b) {
+        
     }
     
     

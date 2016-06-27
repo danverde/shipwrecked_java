@@ -15,7 +15,7 @@ public class Map implements Serializable{
     private int numCols;
     private int numRows;
     private Game[] game;
-    private Location[][] locations;
+    public Location[][] locations;
 
     public Map(int numRows, int numCols) {
         
