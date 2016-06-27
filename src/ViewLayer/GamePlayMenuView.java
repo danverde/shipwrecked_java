@@ -5,8 +5,10 @@
  */
 package ViewLayer;
 
+import ControlLayer.MapControl;
 import ModelLayer.Game;
 import ModelLayer.Item;
+import ModelLayer.Map;
 import shipwreck.Shipwreck;
 
 /**
@@ -125,21 +127,16 @@ public class GamePlayMenuView extends View{
         System.out.println("\n*** huntFood function called ***");    
     }
 
-    private void viewMap() {
+    public long viewMap() {
         MapControl mapControl = new MapControl();
         mapControl.display();
+        for (int i = 0; i < MapControl.length; i++);
+            for (int j = 0; j< MapControl[i].length; j++);
+            if (location.setVisited = false){
+                System.out.println(" ?? ");
+            }
+            System.out.println(MapControl.setDisplaySymbol);
         
-        StringBuilder line;
-        
-        Game game = Shipwreck.getCurrentGame();
-        Location[][] locations = mapControl.map.getLocations();
-        
-        System.out.println("\nLIST OF INVENTORY ITEMS.");
-        line = new StringBuilder("                                        ");
-        line.insert(0,"DESCRIPTION");
-        line.insert(20,"REQUIRED");
-        line.insert(30,"IN STOCK");
-        System.out.println(line.toString());
     }
 
     private void moveMenu() {
