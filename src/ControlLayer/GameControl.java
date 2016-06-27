@@ -51,7 +51,8 @@ public class GameControl {
     }
 
     static void assignSceneLocations(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.err.println("AssignSceeLocations called");
+        return;
     }
     
       public enum Items{
@@ -65,7 +66,7 @@ public class GameControl {
     } 
     
         public static Item[] createItemList(Player player) {
-        Item[] itemList = new Item[6];
+        Item[] itemList = new Item[7];
               
         Item wood = new Item();
         wood.setItemType("Wood");
