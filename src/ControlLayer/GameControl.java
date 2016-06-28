@@ -53,7 +53,6 @@ public class GameControl {
     }
 
     static void assignSceneLocations(Map map, Scene[] scenes) {
-        System.out.println("Here it is");
         System.out.println("AssignSceneLocations called");
         return;
     }

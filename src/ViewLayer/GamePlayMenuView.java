@@ -129,10 +129,8 @@ public class GamePlayMenuView extends View{
     private long viewMap() {
         Game game = Shipwreck.getCurrentGame();
 
-
     public long viewMap() {
         /*
->>>>>>> origin/master
         MapControl mapControl = new MapControl();
         for (int i = 0; i < MapControl.length; i++);
             for (int j = 0; j< MapControl[i].length; j++);
