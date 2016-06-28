@@ -24,7 +24,7 @@ public class GamePlayMenuView extends View{
                   + "\n| Game Menu"
                   + "\n----------------------------------"
                   + "\nR - View Inventory"
-                  + "\nF - Hunt for Food"
+                  + "\nX - Hunt for Food"
                   + "\nM - View Map / Current Location"
                   + "\nL - Move to Different Location"
                   + "\nB - Build Survival Item"
@@ -100,13 +100,13 @@ public class GamePlayMenuView extends View{
     }
 
     private void viewInventory() {
-        CollectResourceView CollectFoodView = new CollectResourceView();
-        CollectFoodView.display();
+       /*CollectResourceView CollectFoodView = new CollectResourceView();
+        CollectFoodView.display();*/
         
         StringBuilder line;
         
         Game game = Shipwreck.getCurrentGame();
-        Item[] inventory = game.getItem();
+        Item[] inventory = game.getItems();
         
         System.out.println("\nLIST OF INVENTORY ITEMS.");
         line = new StringBuilder("                                        ");
@@ -118,9 +118,8 @@ public class GamePlayMenuView extends View{
             line = new StringBuilder("                            ");
             line.insert(0, item.getItemType());
             line.insert(23, item.getQuantity());
-        }
-        System.out.println(line.toString());
-            
+            System.out.println(line.toString());
+        }   
     }
 
     private void huntFood(){
@@ -129,14 +128,19 @@ public class GamePlayMenuView extends View{
     
     private long viewMap() {
         Game game = Shipwreck.getCurrentGame();
+
+
+    public long viewMap() {
+        /*
+>>>>>>> origin/master
         MapControl mapControl = new MapControl();
         for (int i = 0; i < MapControl.length; i++);
             for (int j = 0; j< MapControl[i].length; j++);
             if (location.setVisited = false){
                 System.out.println(" ?? ");
             }
-            System.out.println(MapControl.DisplaySymbol);
-        
+            System.out.println(MapControl.DisplaySymbol);*/
+        return 0;
     }
 
     private void moveMenu() {

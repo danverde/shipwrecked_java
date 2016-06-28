@@ -5,8 +5,10 @@
  */
 package ControlLayer;
 
+import ModelLayer.FightScene;
 import ModelLayer.Location;
 import ModelLayer.Map;
+import ModelLayer.ResourceScene;
 import ModelLayer.Scene;
 
 /**
@@ -91,14 +93,14 @@ public class MapControl {
         campScene.setTimeTravel(2);
         scenes[Scenes.Camp.ordinal()] = campScene;
         
-        Scene forestScene = new Scene();
+        Scene forestScene = new ResourceScene();
         forestScene.setDescription("Welcome to the forest. Don't get killed.");
         forestScene.setDisplaySymbol(" F ");
         forestScene.setBlockedLocation(false);
         forestScene.setTimeTravel(2);
         scenes[Scenes.Forest.ordinal()] = forestScene;
 
-        Scene enemyScene = new Scene();
+        Scene enemyScene = new FightScene();
         enemyScene.setDescription("Look out for that enemy. Don't get killed.");
         enemyScene.setDisplaySymbol(" E ");
         enemyScene.setBlockedLocation(false);
@@ -119,7 +121,7 @@ public class MapControl {
         townScene.setTimeTravel(2);
         scenes[Scenes.Town.ordinal()] = townScene;
 
-        Scene stoneScene = new Scene();
+        Scene stoneScene = new ResourceScene();
         stoneScene.setDescription("You are saved.");
         stoneScene.setDisplaySymbol(" F ");
         stoneScene.setBlockedLocation(false);
@@ -145,5 +147,6 @@ public class MapControl {
 
     static void moveCharacterToStartLocation(Map map) {
         System.out.println("and again");
+        return;
     }
 }

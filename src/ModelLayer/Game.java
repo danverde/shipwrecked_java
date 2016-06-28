@@ -16,17 +16,17 @@ public class Game implements Serializable {
     private Map map;
     private Weather weather;
     private Player player;
-    private Item[] item;
+    private Item[] items;
 
     public Game() {
     }
 
-    public Item[] getItem() {
-        return item;
+    public Item[] getItems() {
+        return items;
     }
 
-    public void setItem(Item[] item) {
-        this.item = item;
+    public void setItems(Item[] items) {
+        this.items = items;
     }
     
     public Player getPlayer() {
