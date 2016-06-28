@@ -25,7 +25,7 @@ public class GamePlayMenuView extends View{
                   + "\n| Game Menu"
                   + "\n----------------------------------"
                   + "\nR - View Inventory"
-                  + "\nF - Hunt for Food"
+                  + "\nX - Hunt for Food"
                   + "\nM - View Map / Current Location"
                   + "\nL - Move to Different Location"
                   + "\nB - Build Survival Item"
@@ -101,13 +101,13 @@ public class GamePlayMenuView extends View{
     }
 
     private void viewInventory() {
-        CollectResourceView CollectFoodView = new CollectResourceView();
-        CollectFoodView.display();
+       /*CollectResourceView CollectFoodView = new CollectResourceView();
+        CollectFoodView.display();*/
         
         StringBuilder line;
         
         Game game = Shipwreck.getCurrentGame();
-        Item[] inventory = game.getItem();
+        Item[] inventory = game.getItems();
         
         System.out.println("\nLIST OF INVENTORY ITEMS.");
         line = new StringBuilder("                                        ");
@@ -119,9 +119,8 @@ public class GamePlayMenuView extends View{
             line = new StringBuilder("                            ");
             line.insert(0, item.getItemType());
             line.insert(23, item.getQuantity());
-        }
-        System.out.println(line.toString());
-            
+            System.out.println(line.toString());
+        }   
     }
 
     private void huntFood(){

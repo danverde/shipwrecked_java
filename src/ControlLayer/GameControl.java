@@ -41,6 +41,8 @@ public class GameControl {
         game.setWeather(weather); 
         
         Item[] itemList = GameControl.createItemList(player);
+        game.setItems(itemList);
+        
         game.setTime(0);//save time
         game.setBestTime(0); //save best timeMap map = MapControl.createMap;//create new map
         
@@ -51,7 +53,7 @@ public class GameControl {
     }
 
     static void assignSceneLocations(Map map, Scene[] scenes) {
-        System.err.println("AssignSceeLocations called");
+        System.out.println("AssignSceneLocations called");
         return;
     }
     
