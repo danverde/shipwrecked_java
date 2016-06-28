@@ -22,24 +22,6 @@ public class Location implements Serializable{
     public Location() {
     }
 
-    public ArrayList<Character> getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(ArrayList<Character> character) {
-        this.character = character;
-    }
-    
-    public Scene getScene() {
-        return scene;
-    }
-
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
-    
-    
-    
     public int getColumn() {
         return column;
     }
@@ -62,6 +44,21 @@ public class Location implements Serializable{
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+    }
+        public ArrayList<Character> getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(ArrayList<Character> character) {
+        this.character = character;
+    }
+    
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
 
     @Override

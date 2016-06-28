@@ -127,21 +127,72 @@ public class GamePlayMenuView extends View{
     private void huntFood(){
         System.out.println("\n*** huntFood function called ***");    
     }
+
+    public long viewMap() {
+    Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
+    // PRINT the title
+    System.out.println("\nShipwreck Map");
     
-    private long viewMap() {
-        Shipwreck.getCurrentGame().getMap().getLocations();
+    // PRINT the column numbers in the header
+    System.out.println("\n 0  1  2  3  4");
+        for (Location[] rowLocation: location){
+            // PRINT a row divider
+        System.out.println("\n-----------------------");
         
-        System.out.println("The Map");
-        System.out.println("1|2|3|4|4");
-        
-        Location location= new Location();
-        for (int i = 0; i < location.column; i++);
-            for (int j = 0; j< location.row; j++);
-            if (location.visited = false){
-                System.out.println(" ?? ");
+        // PRINT the row number on a new line
+        System.out.println("\n" + i);
+            for (int j = 0; j < locations[i].length; j++){
+                System.out.println("|");
+                if (i.isVisited() == false){
+                    System.out.println(" ?? ");
+                }else{
+                System.out.println(locations.DisplaySymbol);
             }
-            System.out.println(MapControl.DisplaySymbol);
-        return 0;
+               System.out.println("|"); 
+        }}
+            System.out.println("-------------------");
+            return location[][];    
+    }  
+        
+     /*//get the 2-D locations array in the map in the current game
+     = Shipwreck.getCurrentGame().getMap().getLocations();
+    
+    // PRINT the title
+    System.out.println("\nShipwreck Map");
+    
+    // PRINT the column numbers in the header
+    System.out.println("\n 0  1  2  3  4");
+    
+    // FOR every row in map
+    for (int i = 0; ;i++){
+        // PRINT a row divider
+        System.out.println("\n-----------------------");
+        
+        // PRINT the row number on a new line
+        System.out.println("\n" + i);
+        
+        // FOR every column in row
+        for (int j=0; ;j++){
+        
+        // PRINT a column divider
+        System.out.println("|");
+        
+        // location = locations[row][column]
+        // IF location has been visited
+        if (location.isVisited()){
+            System.out.println();
+        }
+        else{
+            System.out.println("??");
+        }
+
+    // PRINT the ending column divider
+    System.out.println("|");
+    // ENDFOR
+    }}
+    System.out.println("-------------------");
+    // PRINT ending row divider 
+        return 0;*/
     }
 
     private void moveMenu() {
