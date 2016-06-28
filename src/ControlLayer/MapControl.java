@@ -37,7 +37,7 @@ public class MapControl {
     Beach,
     Water;
 }
-    private static void assignSceneLocations(Map map, Scene[] scenes) {
+    public static void assignSceneLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
         
         locations[0][0].setScene(scenes[Scenes.Water.ordinal()]);
@@ -71,6 +71,7 @@ public class MapControl {
         locations[4][4].setScene(scenes[Scenes.Forest.ordinal()]);
         
     }
+    
 
     private static Scene[] createScenes() {
         
@@ -143,6 +144,6 @@ public class MapControl {
     }
 
     static void moveCharacterToStartLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("and again");
     }
 }

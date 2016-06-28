@@ -5,7 +5,6 @@
  */
 package ViewLayer;
 
-import ControlLayer.GameControl;
 import ControlLayer.MapControl;
 import ModelLayer.Game;
 import ModelLayer.Item;
@@ -127,8 +126,9 @@ public class GamePlayMenuView extends View{
     private void huntFood(){
         System.out.println("\n*** huntFood function called ***");    
     }
-
-    public long viewMap(GameControl.assignSceneLocations[] [] ) {
+    
+    private long viewMap() {
+        Game game = Shipwreck.getCurrentGame();
         MapControl mapControl = new MapControl();
         for (int i = 0; i < MapControl.length; i++);
             for (int j = 0; j< MapControl[i].length; j++);
