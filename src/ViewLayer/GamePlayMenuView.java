@@ -127,15 +127,16 @@ public class GamePlayMenuView extends View{
         System.out.println("\n*** huntFood function called ***");    
     }
 
-    public long viewMap(GameControl.assignSceneLocations[] [] ) {
+    public long viewMap() {
+        /*
         MapControl mapControl = new MapControl();
         for (int i = 0; i < MapControl.length; i++);
             for (int j = 0; j< MapControl[i].length; j++);
             if (location.setVisited = false){
                 System.out.println(" ?? ");
             }
-            System.out.println(MapControl.DisplaySymbol);
-        
+            System.out.println(MapControl.DisplaySymbol);*/
+        return 0;
     }
 
     private void moveMenu() {
