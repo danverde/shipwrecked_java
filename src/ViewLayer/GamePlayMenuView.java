@@ -11,6 +11,7 @@ import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Location;
 import ModelLayer.Map;
+import ModelLayer.Scene;
 import shipwreck.Shipwreck;
 
 /**
@@ -129,72 +130,47 @@ public class GamePlayMenuView extends View{
     }
 
     public long viewMap() {
+   
     Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
-    // PRINT the title
-    System.out.println("\nShipwreck Map");
+    // get the 2-D locations array in the map in the current game
     
-    // PRINT the column numbers in the header
-    System.out.println("\n 0  1  2  3  4");
-        for (Location[] rowLocation: location){
-            // PRINT a row divider
-        System.out.println("\n-----------------------");
-        
-        // PRINT the row number on a new line
-        System.out.println("\n" + i);
-            for (int j = 0; j < locations[i].length; j++){
-                System.out.println("|");
-                if (i.isVisited() == false){
-                    System.out.println(" ?? ");
-                }else{
-                System.out.println(locations.DisplaySymbol);
-            }
-               System.out.println("|"); 
-        }}
-            System.out.println("-------------------");
-            return location[][];    
-    }  
-        
-     /*//get the 2-D locations array in the map in the current game
-     = Shipwreck.getCurrentGame().getMap().getLocations();
+    System.out.println("Shipwreck Map");
     
-    // PRINT the title
-    System.out.println("\nShipwreck Map");
-    
-    // PRINT the column numbers in the header
-    System.out.println("\n 0  1  2  3  4");
-    
+    System.out.println("     0      1      2      3      4");
+    int rowNum = 0;
     // FOR every row in map
-    for (int i = 0; ;i++){
+    for (Location[] rowLocation: locations){
         // PRINT a row divider
-        System.out.println("\n-----------------------");
-        
+        System.out.println("  -----------------------------------");
+        System.out.print(rowNum);
+        rowNum++;
         // PRINT the row number on a new line
-        System.out.println("\n" + i);
-        
         // FOR every column in row
-        for (int j=0; ;j++){
-        
-        // PRINT a column divider
-        System.out.println("|");
-        
-        // location = locations[row][column]
-        // IF location has been visited
-        if (location.isVisited()){
-            System.out.println();
+        for (Location columnLocation: rowLocation){
+            // PRINT a column divider
+            System.out.print(" | ");
+            
+            // location = locations[row][column]
+            // IF location has been visited
+            if (columnLocation.isVisited() == true){
+                String displaySymbol = columnLocation.getScene().getDisplaySymbol();
+                System.out.println(displaySymbol);
+            }
+            // PRINT the mapSymbol in the scene in this location
+            else{
+                // DISPLAY " ?? "
+                System.out.print(" ?? ");
+            }
         }
-        else{
-            System.out.println("??");
-        }
-
-    // PRINT the ending column divider
+        // PRINT the ending column divider
     System.out.println("|");
-    // ENDFOR
-    }}
-    System.out.println("-------------------");
-    // PRINT ending row divider 
-        return 0;*/
     }
+    // PRINT ending row divider 
+    System.out.println("  -----------------------------------");   
+    return 0;
+}    
 
+    
     private void moveMenu() {
         MoveLocationView moveLocation = new MoveLocationView();
         moveLocation.display();

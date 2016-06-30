@@ -80,29 +80,29 @@ public class MapControl {
         Scene[] scenes = new Scene[Scenes.values().length];
         
         Scene startingScene = new Scene();
-        startingScene.setDescription("Welcome to the Beach. Don't get eaten.");
-        startingScene.setDisplaySymbol(" B ");
+        startingScene.setDescription("Welcome to the Beach. Don't go Swimming.");
+        startingScene.setDisplaySymbol("  B ");
         startingScene.setBlockedLocation(false);
         startingScene.setTimeTravel(2);
         scenes[Scenes.Starting.ordinal()] = startingScene;
         
         Scene campScene = new Scene();
         campScene.setDescription("Welcome to the Camp. Don't get lost.");
-        campScene.setDisplaySymbol(" C ");
+        campScene.setDisplaySymbol("  C ");
         campScene.setBlockedLocation(false);
         campScene.setTimeTravel(2);
         scenes[Scenes.Camp.ordinal()] = campScene;
         
         Scene forestScene = new ResourceScene();
-        forestScene.setDescription("Welcome to the forest. Don't get killed.");
-        forestScene.setDisplaySymbol(" F ");
+        forestScene.setDescription("Welcome to the forest. Don't get eaten.");
+        forestScene.setDisplaySymbol("  F ");
         forestScene.setBlockedLocation(false);
         forestScene.setTimeTravel(2);
         scenes[Scenes.Forest.ordinal()] = forestScene;
 
         Scene enemyScene = new FightScene();
         enemyScene.setDescription("Look out for that enemy. Don't get killed.");
-        enemyScene.setDisplaySymbol(" E ");
+        enemyScene.setDisplaySymbol("  E ");
         enemyScene.setBlockedLocation(false);
         enemyScene.setTimeTravel(2);
         scenes[Scenes.Enemy.ordinal()] = enemyScene;
@@ -116,28 +116,28 @@ public class MapControl {
 
         Scene townScene = new Scene();
         townScene.setDescription("You are saved.");
-        townScene.setDisplaySymbol(" T ");
+        townScene.setDisplaySymbol("  T ");
         townScene.setBlockedLocation(false);
         townScene.setTimeTravel(2);
         scenes[Scenes.Town.ordinal()] = townScene;
 
         Scene stoneScene = new ResourceScene();
         stoneScene.setDescription("You are saved.");
-        stoneScene.setDisplaySymbol(" F ");
+        stoneScene.setDisplaySymbol("  F ");
         stoneScene.setBlockedLocation(false);
         stoneScene.setTimeTravel(2);
         scenes[Scenes.Stone.ordinal()] = stoneScene;
         
         Scene waterScene = new Scene();
         waterScene.setDescription("Don't drown.");
-        waterScene.setDisplaySymbol(" W ");
+        waterScene.setDisplaySymbol("  W ");
         waterScene.setBlockedLocation(true);
         waterScene.setTimeTravel(2);
         scenes[Scenes.Water.ordinal()] = waterScene;
         
         Scene BeachScene = new Scene();
         BeachScene.setDescription("Welcome to the beach");
-        BeachScene.setDisplaySymbol(" B ");
+        BeachScene.setDisplaySymbol("  B ");
         BeachScene.setBlockedLocation(false);
         BeachScene.setTimeTravel(2);
         scenes[Scenes.Beach.ordinal()] = BeachScene;
