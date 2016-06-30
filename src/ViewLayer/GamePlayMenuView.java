@@ -108,14 +108,12 @@ public class GamePlayMenuView extends View{
         helpMenuView.display();
     }
 
-    private void viewInventory() {
-       /*CollectResourceView CollectFoodView = new CollectResourceView();
-        CollectFoodView.display();*/
-        
+    private void viewInventory() {      
         StringBuilder line;
         
         Game game = Shipwreck.getCurrentGame();
         Item[] inventory = game.getItems();
+        inventory = GameControl.sortList(inventory);
         
         System.out.println("\nLIST OF INVENTORY ITEMS.");
         line = new StringBuilder("                                        ");
