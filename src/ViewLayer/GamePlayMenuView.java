@@ -6,7 +6,9 @@
 package ViewLayer;
 
 import ControlLayer.GameControl;
+import ControlLayer.GameControl.FoodStuff;
 import ControlLayer.MapControl;
+import ModelLayer.Food;
 import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Location;
@@ -26,7 +28,8 @@ public class GamePlayMenuView extends View{
                   + "\n----------------------------------" 
                   + "\n| Game Menu"
                   + "\n----------------------------------"
-                  + "\nR - View Inventory"
+                  + "\nR - View Resources"
+                  + "\nJ - View Food"
                   + "\nX - Hunt for Food"
                   + "\nM - View Map / Current Location"
                   + "\nL - Move to Different Location"
@@ -51,6 +54,9 @@ public class GamePlayMenuView extends View{
         switch (menuOption){
             case "R":
                 this.viewInventory();
+                break;
+            case "J":
+                this.viewFood();
                 break;
             case "X":
                 this.huntFood();
@@ -124,6 +130,28 @@ public class GamePlayMenuView extends View{
             System.out.println(line.toString());
         }   
     }
+    
+    private void viewFood() {
+        StringBuilder line;
+        
+        Game game = Shipwreck.getCurrentGame();
+        Food[] foods = game.getFoodStuff();
+        
+        System.out.println("\nLIST OF FOOD ITEMS.");
+        line = new StringBuilder("                                        ");
+        line.insert(0,"DESCRIPTION");
+        line.insert(17,"IN STOCK");
+        line.insert(30,"LEVEL OF DELICIOUSNESS");
+        System.out.println(line.toString());
+        
+        for (Food food: foods){
+            line = new StringBuilder("                            ");
+            line.insert(0, food.getFoodType());
+            line.insert(20, food.getQuanitiy());
+            line.insert(33, food.getHungerFilled());
+            System.out.println(line.toString());
+        }   
+    }
 
     private void huntFood(){
         System.out.println("\n*** huntFood function called ***");    
@@ -132,7 +160,6 @@ public class GamePlayMenuView extends View{
     public long viewMap() {
    
     Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
-    // get the 2-D locations array in the map in the current game
     
     System.out.println("Shipwreck Map");
     
@@ -212,6 +239,8 @@ public class GamePlayMenuView extends View{
     void displayGamePlayMenu() {
         System.out.println("\n*** GamePlayMenu function called ***");
     }
+
+
     
     
 

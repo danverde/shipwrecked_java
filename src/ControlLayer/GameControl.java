@@ -5,6 +5,7 @@
  */
 package ControlLayer;
 
+import ModelLayer.Food;
 import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Map;
@@ -43,6 +44,9 @@ public class GameControl {
         Item[] itemList = GameControl.createItemList(player);
         game.setItems(itemList);
         
+        Food[] foods = GameControl.createFoodList(player);
+        game.setFoodStuff(foods);
+        
         game.setTime(0);//save time
         game.setBestTime(0); //save best timeMap map = MapControl.createMap;//create new map
         
@@ -61,14 +65,12 @@ public class GameControl {
        Wood,
        Match,
        Spear,
-       Meat,
-       Fruit,
        Vine,
        Stone;
     } 
     
         public static Item[] createItemList(Player player) {
-        Item[] itemList = new Item[7];
+        Item[] itemList = new Item[5];
               
         Item wood = new Item();
         wood.setItemType("Wood");
@@ -85,16 +87,6 @@ public class GameControl {
         spear.setQuantity(0);
         itemList[Items.Spear.ordinal()] = spear;
         
-        Item meat = new Item();
-        meat.setItemType("Meat");
-        meat.setQuantity(0);
-        itemList[Items.Meat.ordinal()] = meat;
-        
-        Item fruit = new Item();
-        fruit.setItemType("Fruit");
-        fruit.setQuantity(0);
-        itemList [Items.Fruit.ordinal()] = fruit;
-        
         Item vine = new Item();
         vine.setItemType("Vine");
         vine.setQuantity(0);
@@ -107,5 +99,33 @@ public class GameControl {
         
         return itemList;
     }
+        public enum FoodStuff{
+            Meat,
+            Fruit,
+            Fish;
+        }
+        public static Food[] createFoodList(Player player){
+        Food[] foodList = new Food[3];
+        
+        Food meat = new Food();
+        meat.setFoodType("Meat");
+        meat.setQuanitiy(0);
+        meat.setHungerFilled(5);
+        foodList[FoodStuff.Meat.ordinal()] = meat;
+        
+        Food fruit = new Food();
+        fruit.setFoodType("Fruit");
+        fruit.setQuanitiy(4);
+        fruit.setHungerFilled(2);
+        foodList [FoodStuff.Fruit.ordinal()] = fruit;
+        
+        Food fish = new Food();
+        fish.setFoodType("Fish");
+        fish.setQuanitiy(0);
+        fish.setHungerFilled(4);
+        foodList [FoodStuff.Fish.ordinal()] = fish;
+        
+        return foodList;
+        }
    
 }
