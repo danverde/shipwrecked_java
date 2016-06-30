@@ -9,7 +9,9 @@ import ControlLayer.GameControl;
 import ControlLayer.MapControl;
 import ModelLayer.Game;
 import ModelLayer.Item;
+import ModelLayer.Location;
 import ModelLayer.Map;
+import ModelLayer.Scene;
 import shipwreck.Shipwreck;
 
 /**
@@ -126,22 +128,49 @@ public class GamePlayMenuView extends View{
     private void huntFood(){
         System.out.println("\n*** huntFood function called ***");    
     }
-    
-    private long viewMap() {
-        Game game = Shipwreck.getCurrentGame();
 
     public long viewMap() {
-        /*
-        MapControl mapControl = new MapControl();
-        for (int i = 0; i < MapControl.length; i++);
-            for (int j = 0; j< MapControl[i].length; j++);
-            if (location.setVisited = false){
-                System.out.println(" ?? ");
+    
+    Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
+    // get the 2-D locations array in the map in the current game
+    
+    System.out.println("Shipwreck Map");
+    
+    System.out.println("     0      1      2      3      4");
+    int rowNum = 0;
+    // FOR every row in map
+    for (Location[] rowLocation: locations){
+        // PRINT a row divider
+        System.out.println("  -----------------------------------");
+        System.out.print(rowNum);
+        rowNum++;
+        // PRINT the row number on a new line
+        // FOR every column in row
+        for (Location columnLocation: rowLocation){
+            // PRINT a column divider
+            System.out.print(" | ");
+            
+            // location = locations[row][column]
+            // IF location has been visited
+            if (columnLocation.isVisited() == true){
+                String displaySymbol = columnLocation.getScene().getDisplaySymbol();
+                System.out.println(displaySymbol);
             }
-            System.out.println(MapControl.DisplaySymbol);
-        
+            // PRINT the mapSymbol in the scene in this location
+            else{
+                // DISPLAY " ?? "
+                System.out.print(" ?? ");
+            }
+        }
+        // PRINT the ending column divider
+    System.out.println("|");
     }
+    // PRINT ending row divider 
+    System.out.println("  -----------------------------------");   
+    return 0;
+}    
 
+    
     private void moveMenu() {
         MoveLocationView moveLocation = new MoveLocationView();
         moveLocation.display();
