@@ -11,6 +11,7 @@ import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Location;
 import ModelLayer.Map;
+import ModelLayer.Scene;
 import shipwreck.Shipwreck;
 
 /**
@@ -127,23 +128,54 @@ public class GamePlayMenuView extends View{
     private void huntFood(){
         System.out.println("\n*** huntFood function called ***");    
     }
-    
-    private long viewMap() {
-        Shipwreck.getCurrentGame().getMap().getLocations();
-        
-        System.out.println("The Map");
-        System.out.println("1|2|3|4|4");
-        
-        Location location= new Location();
-        for (int i = 0; i < location.column; i++);
-            for (int j = 0; j< location.row; j++);
-            if (location.visited = false){
-                System.out.println(" ?? ");
-            }
-            System.out.println(MapControl.DisplaySymbol);
-        return 0;
-    }
 
+    public long viewMap() {
+    
+    Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
+    // get the 2-D locations array in the map in the current game
+    
+    System.out.println("Shipwreck Map");
+    
+    System.out.println("     0      1      2      3      4");
+    int rowNum = 0;
+    // FOR every row in map
+    for (Location[] rowLocation: locations){
+        // PRINT a row divider
+        System.out.println("  -----------------------------------");
+        
+        System.out.print(rowNum);
+        rowNum++;
+        // PRINT the row number on a new line
+        // FOR every column in row
+        for (Location columnLocation: rowLocation){
+            // PRINT a column divider
+            System.out.print(" | ");
+            
+            // location = locations[row][column]
+            
+            // IF location has been visited
+            
+            if (columnLocation.isVisited() == true){
+                String displaySymbol = columnLocation.getScene().getDisplaySymbol();
+                System.out.println(displaySymbol);
+            }
+            // PRINT the mapSymbol in the scene in this location
+
+            else{
+                // DISPLAY " ?? "
+                System.out.print(" ?? ");
+            }
+    
+        }
+        // PRINT the ending column divider
+    System.out.println("|");
+    }
+    // PRINT ending row divider 
+    System.out.println("  -----------------------------------");   
+    return 0;
+}    
+
+    
     private void moveMenu() {
         MoveLocationView moveLocation = new MoveLocationView();
         moveLocation.display();

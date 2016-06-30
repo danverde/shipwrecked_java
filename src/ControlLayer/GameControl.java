@@ -5,6 +5,7 @@
  */
 package ControlLayer;
 
+import ModelLayer.Food;
 import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Map;
@@ -61,8 +62,6 @@ public class GameControl {
        Wood,
        Match,
        Spear,
-       Meat,
-       Fruit,
        Vine,
        Stone;
     } 
@@ -85,16 +84,6 @@ public class GameControl {
         spear.setQuantity(0);
         itemList[Items.Spear.ordinal()] = spear;
         
-        Item meat = new Item();
-        meat.setItemType("Meat");
-        meat.setQuantity(0);
-        itemList[Items.Meat.ordinal()] = meat;
-        
-        Item fruit = new Item();
-        fruit.setItemType("Fruit");
-        fruit.setQuantity(0);
-        itemList [Items.Fruit.ordinal()] = fruit;
-        
         Item vine = new Item();
         vine.setItemType("Vine");
         vine.setQuantity(0);
@@ -107,5 +96,29 @@ public class GameControl {
         
         return itemList;
     }
+        public enum FoodStuff{
+            Meat,
+            Fish,
+            Fruit;
+        }
+        public static Food[] createFoodList(Player player){
+            Food[] foodList = new Food[3];
+        Food meat = new Food();
+        meat.setFoodType("Meat");
+        meat.setQuanitiy(0);
+        foodList[FoodStuff.Meat.ordinal()] = meat;
+        
+        Food fruit = new Food();
+        fruit.setFoodType("Fruit");
+        fruit.setQuanitiy(0);
+        foodList [FoodStuff.Fruit.ordinal()] = fruit;
+        
+        Food fish = new Food();
+        fruit.setFoodType("Fish");
+        fruit.setQuanitiy(0);
+        foodList [FoodStuff.Fish.ordinal()] = fish;
+        
+        return foodList;
+        }
    
 }

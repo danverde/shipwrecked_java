@@ -17,9 +17,19 @@ public class Game implements Serializable {
     private Weather weather;
     private Player player;
     private Item[] items;
+    private Food[] foodStuff;
 
     public Game() {
     }
+
+    public Food[] getFoodStuff() {
+        return foodStuff;
+    }
+
+    public void setFoodStuff(Food[] foodStuff) {
+        this.foodStuff = foodStuff;
+    }
+    
 
     public Item[] getItems() {
         return items;
