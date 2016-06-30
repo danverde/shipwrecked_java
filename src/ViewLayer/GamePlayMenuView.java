@@ -130,7 +130,7 @@ public class GamePlayMenuView extends View{
     }
 
     public long viewMap() {
-    
+   
     Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
     // get the 2-D locations array in the map in the current game
     
