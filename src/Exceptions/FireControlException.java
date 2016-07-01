@@ -9,24 +9,24 @@ package Exceptions;
  *
  * @author Daniel
  */
-public class MapControlException extends Exception{
+public class FireControlException extends Exception{
 
-    public MapControlException() {
+    public FireControlException() {
     }
 
-    public MapControlException(String message) {
+    public FireControlException(String message) {
         super(message);
     }
 
-    public MapControlException(String message, Throwable cause) {
+    public FireControlException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public MapControlException(Throwable cause) {
+    public FireControlException(Throwable cause) {
         super(cause);
     }
 
-    public MapControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public FireControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
     

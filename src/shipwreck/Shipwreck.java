@@ -27,11 +27,17 @@ public class Shipwreck {
 
     private static Game currentGame = null;
     private static Player player = null;
-        
+
     public static void main(String[] args) {
-     
-    StartProgramView StartProgramView = new StartProgramView();
-    StartProgramView.display();
+        StartProgramView StartProgramView = new StartProgramView();
+        try {    
+            StartProgramView.display();
+        }
+        catch(Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            StartProgramView.display();
+        }
     }
 
     public static Game getCurrentGame() {
@@ -49,5 +55,5 @@ public class Shipwreck {
     public static void setPlayer(Player player) {
         Shipwreck.player = player;
     }
-    
+
 }
