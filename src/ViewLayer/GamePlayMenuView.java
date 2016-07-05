@@ -216,7 +216,8 @@ public class GamePlayMenuView extends View{
     }
 
     private void raftMenu() {
-        System.out.println("\n*** raftMenu function called ***");
+        RaftView raftView = new RaftView();
+        raftView.display();
     }
 
     private void fireMenu() {

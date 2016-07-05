@@ -14,7 +14,7 @@ import Exceptions.FloatControlException;
  * @author Jack
  */
 public class FloatingConrtol {
-    public String verifyBouyency (int  characterWeight, int logAmount) 
+    public static boolean verifyBouyency (int  characterWeight, int logAmount) 
             throws FloatControlException{
     // If (characterWeight < 59 or >201)
     //Return -1
@@ -35,9 +35,9 @@ public class FloatingConrtol {
     
     double bouyencyForce = logAmount - (characterWeight * .0167);
     if (bouyencyForce > -1){
-        return "True";
+        return true;
     }
-    else return "False";
+    else return false;
 
 }
     
