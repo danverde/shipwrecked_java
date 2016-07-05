@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Food implements Serializable  {
     private int quanitiy;
     private String foodType;
-    private int hungerFilled;
+    public int hungerFilled;
 
     public int getQuanitiy() {
         return quanitiy;

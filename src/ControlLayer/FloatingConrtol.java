@@ -1,5 +1,7 @@
 package ControlLayer;
 
+import Exceptions.FloatControlException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,7 +14,8 @@ package ControlLayer;
  * @author Jack
  */
 public class FloatingConrtol {
-    public String verifyBouyency (int  characterWeight, int logAmount){
+    public String verifyBouyency (int  characterWeight, int logAmount) 
+            throws FloatControlException{
     // If (characterWeight < 59 or >201)
     //Return -1
     //If (logAmount <0 or > 6)
@@ -23,10 +26,11 @@ public class FloatingConrtol {
     //Else 
     //Return false
     if (characterWeight < 60 || characterWeight > 200){
-        return "-1";
+        throw new FloatControlException("You can't sail away in that shape,"
+                                        +"your weight is way off");
     }
     if (logAmount < 1 || logAmount > 5){
-        return "-2";
+        throw new FloatControlException ("Good Luck sailing with that, the logs are wrong");
     }
     
     double bouyencyForce = logAmount - (characterWeight * .0167);

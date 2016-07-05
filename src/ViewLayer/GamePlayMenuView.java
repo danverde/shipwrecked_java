@@ -7,6 +7,7 @@ package ViewLayer;
 
 import ControlLayer.GameControl;
 import ControlLayer.GameControl.FoodStuff;
+import static ControlLayer.GameControl.sumList;
 import ControlLayer.MapControl;
 import ModelLayer.Food;
 import ModelLayer.Game;
@@ -148,7 +149,8 @@ public class GamePlayMenuView extends View{
             line.insert(20, food.getQuanitiy());
             line.insert(33, food.getHungerFilled());
             System.out.println(line.toString());
-        }   
+        }
+        System.out.println(GameControl.sumList(foods));
     }
 
     private void huntFood(){
