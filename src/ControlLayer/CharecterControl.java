@@ -5,30 +5,21 @@
  */
 package ControlLayer;
 
+import Exceptions.CharacterControlException;
+
 /**
  *
  * @author Jack
  */
 public class CharecterControl {
-    public double calcDamage(int enemyDefence, int hungerValue, int attackType){
-        
-        //calcDamageInFight(hungervalue, attackType,  enemyDefence);
-        //if (hungerValue &lt; -1 and hungerValue &gt;16);
-        //return -1;
-        //if (enemyDefence &lt; -1 and enemyDefence &gt;6);
-        //return -2;
-        //if (attackType!= 4, 8)
-        //return -3;
-        //damage = hungerValue * 0.3 + attackType – enemyDefence
-        //if damage ( &lt; 0 ) 
-        //return 0;
-        //Else Return damage
-        
+    public double calcDamage(int enemyDefence, int hungerValue, int attackType)throws CharacterControlException{
+
         if (hungerValue < 0 || hungerValue > 15){ 
-            return -1;
+            throw new CharacterControlException("You are wayyyy to hungry to be fighting right now"
+                    + "\nHunger Value too low");
         }
         if (enemyDefence < 0 || enemyDefence > 6){
-            return -2;
+            throw new CharacterControlException("Error. Enemy Defense is too high. You can't win...");
         }
         if (attackType == 4 || attackType == 8){
            double damage = hungerValue * 0.3 + attackType - enemyDefence;
@@ -39,7 +30,7 @@ public class CharecterControl {
         
         }
         else 
-        return -3;
+        throw new CharacterControlException("Invalid attack type");
     }
         
 

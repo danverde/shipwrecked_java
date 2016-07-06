@@ -6,6 +6,7 @@
 package ViewLayer;
 
 import ControlLayer.MapControl;
+import Exceptions.MapControlException;
 
 /**
  *
@@ -18,24 +19,27 @@ public class MoveLocationView extends View{
     }
 
     @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String value){
+       try{
        char cDistance = value.charAt(2);
        int distance = Character.getNumericValue(cDistance);
        char direction = value.toUpperCase().charAt(0);
        
        if (direction != 'N' && direction != 'E' && direction != 'S' && direction != 'W')
        {
-           System.out.println("Invalid direction. Please Enter either N, E, S, or W.");
-           return false;
+           throw new MapControlException("Invalid direction. Please Enter either N, E, S, or W.");
        }
-       if (distance < 1)
+       if (distance < 1 || distance > 5)
        {
-           System.out.println("Invalid distance. Value must be greater than 0.");
-           return false;
+           throw new MapControlException ("Invalid distance. Value must be greater than 0 & less than 6");
        }
 
        MapControl.moveCharacter(direction, distance);
        return true;
-       
+       }
+       catch (MapControlException mce){
+       System.out.println(mce.getMessage());
+           return false;   
+       }
     } 
 }
