@@ -129,7 +129,16 @@ public class GameControl {
 
         return foodList;
     }
-
+    
+    public static int sumList(Food[] foodSum){
+    int total= 0;
+    for (Food food : foodSum){
+        total = total + foodSum.getHungerFilled;
+        return total;
+    }
+    return total;
+ 
+    }
     public static Item[] sortList(Item[] itemList) {
         //Item[] itemList = Shipwreck.getCurrentGame().getItems();
         Item temp;
