@@ -133,7 +133,7 @@ public class GameControl {
     public static int sumList(Food[] foodSum){
     int total= 0;
     for (Food food : foodSum){
-        total = total + foodSum.getHungerFilled;
+        total = total + foodSum.getHungerFilled();
         return total;
     }
     return total;
