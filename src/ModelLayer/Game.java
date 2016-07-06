@@ -18,8 +18,17 @@ public class Game implements Serializable {
     private Player player;
     private Item[] items;
     private Food[] foodStuff;
+    private Enemy[] enemy;
 
     public Game() {
+    }
+
+    public Enemy[] getEnemy() {
+        return enemy;
+    }
+
+    public void setEnemy(Enemy[] enemy) {
+        this.enemy = enemy;
     }
 
     public Food[] getFoodStuff() {

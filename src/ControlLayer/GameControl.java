@@ -5,6 +5,7 @@
  */
 package ControlLayer;
 
+import ModelLayer.Enemy;
 import ModelLayer.Food;
 import ModelLayer.Game;
 import ModelLayer.Item;
@@ -37,10 +38,7 @@ public class GameControl {
         Shipwreck.setCurrentGame(game);//Save game
 
         game.setPlayer(player); //save player
-
-        Weather weather = new Weather();
-        game.setWeather(weather);
-
+        
         Item[] itemList = GameControl.createItemList(player);
         game.setItems(itemList);
 
@@ -52,15 +50,45 @@ public class GameControl {
 
         Map map = MapControl.createMap();//create new map
         game.setMap(map);//save map
+        
+        Enemy[] enemyList = GameControl.createEnemyList();
+        game.setEnemy(enemyList);
 
         MapControl.moveCharacterToStartLocation(map);// place player in start location
     }
 
-    static void assignSceneLocations(Map map, Scene[] scenes) {
-        System.out.println("AssignSceneLocations called");
-        return;
+    public enum enemies {
+        Boar,
+        Cannibal;
     }
-
+    
+    public static Enemy[] createEnemyList()
+    {
+        Enemy[] enemyList = new Enemy[2];
+        
+        Enemy boar = new Enemy();
+        boar.setName("Boar");
+        boar.setHealth(10);
+        boar.setAttack(3);
+        boar.setDefense(3);
+        boar.setHunger(20);
+        boar.setMeat(5);
+        boar.setLocation(Shipwreck.getCurrentGame().getMap().locations[0][2]);
+        enemyList[enemies.Boar.ordinal()] = boar;
+        
+        Enemy cannibal = new Enemy();
+        cannibal.setName("Cannibal");
+        cannibal.setHealth(15);
+        cannibal.setAttack(5);
+        cannibal.setDefense(2);
+        cannibal.setHunger(20);
+        cannibal.setMeat(5);
+        cannibal.setLocation(Shipwreck.getCurrentGame().getMap().locations[3][4]);
+        enemyList[enemies.Cannibal.ordinal()] = cannibal;
+        
+        return enemyList;
+    }
+    
     public enum Items {
         Wood,
         Match,
@@ -133,7 +161,7 @@ public class GameControl {
     public static int sumList(Food[] foodSum){
     int total= 0;
     for (Food food : foodSum){
-        total = total + foodSum.getHungerFilled();
+//        total = total + foodSum.getHungerFilled();
         return total;
     }
     return total;
