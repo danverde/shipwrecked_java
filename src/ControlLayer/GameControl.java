@@ -14,6 +14,7 @@ import ModelLayer.Player;
 import ModelLayer.Scene;
 import ModelLayer.Weather;
 import shipwreck.Shipwreck;
+import ModelLayer.Character;
 
 /**
  *
@@ -42,8 +43,8 @@ public class GameControl {
         Item[] itemList = GameControl.createItemList(player);
         game.setItems(itemList);
 
-        Food[] foods = GameControl.createFoodList(player);
-        game.setFoodStuff(foods);
+        Food[] foodList = GameControl.createFoodList(player);
+        game.setFoodStuff(foodList);
 
         game.setTime(0);//save time
         game.setBestTime(0); //save best timeMap map = MapControl.createMap;//create new map
@@ -51,12 +52,30 @@ public class GameControl {
         Map map = MapControl.createMap();//create new map
         game.setMap(map);//save map
         
+        Character gameCharacter = GameControl.createGameCharacter(player, map);
+        game.getPlayer().setCharacter(gameCharacter);
+        
         Enemy[] enemyList = GameControl.createEnemyList();
         game.setEnemy(enemyList);
 
-        MapControl.moveCharacterToStartLocation(map);// place player in start location
+//        MapControl.moveCharacterToStartLocation(map);// place player in start location
     }
 
+    public static Character createGameCharacter(Player player, Map map){
+    Character gameCharacter = new Character();
+    
+    gameCharacter.setAttack(0);
+    gameCharacter.setDefense(5);
+    gameCharacter.setHealth(30);
+    gameCharacter.setName(player.getName());
+    gameCharacter.setHunger(20);
+    gameCharacter.setLocation(map.locations[1][1]);
+    
+    player.setCharacter(gameCharacter);
+    return gameCharacter;
+    }
+    
+    
     public enum enemies {
         Boar,
         Cannibal;
@@ -64,7 +83,7 @@ public class GameControl {
     
     public static Enemy[] createEnemyList()
     {
-        Enemy[] enemyList = new Enemy[2];
+        Enemy[] enemyList = new Enemy[3];
         
         Enemy boar = new Enemy();
         boar.setName("Boar");

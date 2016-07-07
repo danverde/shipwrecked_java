@@ -10,6 +10,8 @@ import ModelLayer.Location;
 import ModelLayer.Map;
 import ModelLayer.ResourceScene;
 import ModelLayer.Scene;
+import shipwreck.Shipwreck;
+import ModelLayer.Character;
 
 /**
  *
@@ -28,27 +30,56 @@ public class MapControl {
 
     public static void moveCharacter(char direction, int distance) {
         // get current location
-        
+        int col = Shipwreck.getCurrentGame().getPlayer().getCharacter().getLocation().getColumn();
+        int row = Shipwreck.getCurrentGame().getPlayer().getCharacter().getLocation().getRow();
+
+        Character gameCharacter = Shipwreck.getPlayer().getCharacter();
+        Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
+
         // apply requested movement
         switch (direction) {
             case 'N':
-                row += distance;
+                distance -= row;
+                for (int r = row; r >= distance; r--) {
+                    locations[r][col].getScene().setVisited(true);
+                    if (locations[r][col].getScene().isBlockedLocation()){
+                        break;
+                    }   
+                    gameCharacter.setLocation(locations[r][col]);
+                }
                 break;
             case 'E':
-                col += distance;
+                distance += col;
+                for (int c = col; c <= distance; c++) {
+                    locations[row][c].getScene().setVisited(true);
+                    if (locations[row][c].getScene().isBlockedLocation()){
+                        break;
+                    }   
+                    gameCharacter.setLocation(locations[row][c]);
+                }
                 break;
             case 'S':
-                row -= distance;
+                distance += row;
+                for (int r = row; r <= distance; r++) {
+                    locations[r][col].getScene().setVisited(true);
+                    if (locations[r][col].getScene().isBlockedLocation()){
+                        break;
+                    }   
+                    gameCharacter.setLocation(locations[r][col]);
+                }
                 break;
             case 'W':
-                col -= distance;
+              distance -= col;
+                for (int c = col; c >= distance; c--) {
+                    locations[row][c].getScene().setVisited(true);
+                    if (locations[row][c].getScene().isBlockedLocation()){
+                        break;
+                    }   
+                    gameCharacter.setLocation(locations[row][c]);
+                }
                 break;
         }
-        
         // check for errors
-        
-
-        System.out.println("*** MoveCharacter function called ***");
     }
 
     public enum Scenes {
@@ -167,9 +198,13 @@ public class MapControl {
 
         return scenes;
     }
-
-    static void moveCharacterToStartLocation(Map map) {
-        System.out.println("and again");
-        return;
-    }
 }
+
+//    public static void moveCharacterToStartLocation(Map map) {
+//        Location[][] location = map.getLocations();
+//        Shipwreck.getCurrentGame().getPlayer().getCharacter().setLocation(location[1][1]);
+//
+//        System.out.println(Shipwreck.getPlayer().getCharacter().getLocation());
+//        return;
+//    }
+//}

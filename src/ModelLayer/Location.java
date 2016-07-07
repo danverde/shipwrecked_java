@@ -27,7 +27,7 @@ public class Location implements Serializable{
     }
 
     public void setColumn(int columnNumber) {
-        this.column = column;
+        this.column = columnNumber;
     }
 
     public int getRow() {
@@ -35,7 +35,7 @@ public class Location implements Serializable{
     }
 
     public void setRow(int rowNumber) {
-        this.row = row;
+        this.row = rowNumber;
     }
 
     public boolean isVisited() {

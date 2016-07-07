@@ -10,7 +10,6 @@ public class Character implements Serializable {
     
     //class instance variables
     private String name;
-    private String type;
     private int health;
     private int attack;
     private int defense;
@@ -59,15 +58,6 @@ public class Character implements Serializable {
     public void setLocation(Location location) {
         this.location = location;
     }
-    
-    
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getHealth() {
         return health;
@@ -113,7 +103,6 @@ public class Character implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 43 * hash + Objects.hashCode(this.type);
         hash = 43 * hash + this.health;
         hash = 43 * hash + this.attack;
         hash = 43 * hash + this.defense;
@@ -123,7 +112,7 @@ public class Character implements Serializable {
 
     @Override
     public String toString() {
-        return "Character{" + "type=" + type + ", health=" + health + ", attack=" + attack + ", defense=" + defense + ", hunger=" + hunger + '}';
+        return "Character{"+ ", health=" + health + ", attack=" + attack + ", defense=" + defense + ", hunger=" + hunger + '}';
     }
    
     @Override
@@ -148,9 +137,6 @@ public class Character implements Serializable {
             return false;
         }
         if (this.hunger != other.hunger) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
             return false;
         }
         return true;
