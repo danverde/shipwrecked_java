@@ -18,6 +18,12 @@ import ModelLayer.Item;
 import ModelLayer.Fire;
 import ModelLayer.Enemy;
 import ViewLayer.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,18 +33,73 @@ public class Shipwreck {
 
     private static Game currentGame = null;
     private static Player player = null;
+    
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
 
     public static void main(String[] args) {
-        StartProgramView StartProgramView = new StartProgramView();
         try {    
+            Shipwreck.inFile = 
+                    new BufferedReader(new InputStreamReader(System.in));
+            Shipwreck.outFile = new PrintWriter(System.out, true);
+            
+            String filePath = "log.txt";
+            Shipwreck.logFile = new PrintWriter(filePath);
+            StartProgramView StartProgramView = new StartProgramView();
+
             StartProgramView.display();
         }
         catch(Throwable te){
             System.out.println(te.getMessage());
             te.printStackTrace();
-            StartProgramView.display();
         }
+        finally {
+            try {
+                if (inFile != null)
+                inFile.close();
+                
+                if (outFile !=null)
+                outFile.close();
+                
+                if (logFile !=null)
+                    logFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Shipwreck.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        
     }
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Shipwreck.logFile = logFile;
+    }
+        
+    
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutfile(PrintWriter outfile) {
+        Shipwreck.outFile = outfile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader infile) {
+        Shipwreck.inFile = infile;
+    }
+    
+    
 
     public static Game getCurrentGame() {
         return currentGame;

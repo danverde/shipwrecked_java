@@ -24,15 +24,15 @@ public class RaftView extends View{
             int logAmount = Integer.parseInt(logAmountN);
             
             boolean raftSuccess = FloatingConrtol.verifyBouyency(100, logAmount);
-            System.out.println(raftSuccess);
+            this.console.println(raftSuccess);
             return true; 
         }
         catch (FloatControlException fce){
-            System.out.println(fce.getMessage());
+            this.console.println(fce.getMessage());
             return false;
         }
         catch (NumberFormatException nfm){
-            System.out.println(nfm.getMessage());
+            this.console.println(nfm.getMessage());
             return false;
         }
     

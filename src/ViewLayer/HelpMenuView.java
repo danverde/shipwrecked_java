@@ -52,14 +52,14 @@ public class HelpMenuView extends View {
             case "X":
                 return true;
             default:
-                System.out.println("\n*** Recheck your keys & enter a valid letter ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
         return true;
     }
 
     private void gamePurpose() {
-        System.out.println("*************************************************************************"
+        this.console.println("*************************************************************************"
                          + "\n   The purpose of the Game is to survive however you can. Stuck on a"
                          + "\ntropical Island you can either try and escape on your own by buildng"
                          + "\na raft & floating to safety. Or maybe building a large signal fire on"
@@ -70,23 +70,23 @@ public class HelpMenuView extends View {
     }
 
     private void movementHelp() {
-        System.out.println("*** movementHelp function called***");
+        this.console.println("*** movementHelp function called***");
     }
 
     private void resourceHelp() {
-        System.out.println("*** resourceHelp function called***");
+        this.console.println("*** resourceHelp function called***");
     }
 
     private void combatHelp() {
-        System.out.println("*** combatHelp function called***");
+        this.console.println("*** combatHelp function called***");
     }
 
     private void buildingHelp() {
-        System.out.println("*** buildingHelp function called***");
+        this.console.println("*** buildingHelp function called***");
     }
 
     private void weatherExplanation() {
-        System.out.println("*** weatherExplanation function called***");
+        this.console.println("*** weatherExplanation function called***");
     }
 
 }

@@ -44,7 +44,7 @@ public class SignalFireView extends View {
             case "X":
                 return true;
             default:
-                System.out.println("\n*** Recheck your keys & enter a valid letter ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
         return true;
@@ -56,11 +56,11 @@ public class SignalFireView extends View {
     }
 
     private void fireStatus() {
-        System.out.println("*** fireStatus function called***");
+        this.console.println("*** fireStatus function called***");
     }
 
     private void boardShip() {
-        System.out.println("*** boardShip function called***");
+        this.console.println("*** boardShip function called***");
     }
 
 }

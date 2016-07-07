@@ -38,7 +38,7 @@ public class MoveLocationView extends View{
        return true;
        }
        catch (MapControlException mce){
-       System.out.println(mce.getMessage());
+       this.console.println(mce.getMessage());
            return false;   
        }
     } 

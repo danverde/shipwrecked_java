@@ -44,7 +44,7 @@ public class CollectResourceView extends View {
                 this.addIteam();
                 break;
             default:
-                System.out.println("Please Enter a valid Entry");
+                ErrorView.display(this.getClass().getName(),"Please Enter a valid Entry");
                 break;
                 
         }
@@ -52,19 +52,19 @@ public class CollectResourceView extends View {
     }
 
     private void addTime() {
-    System.out.println("\n*** addTime function called ***");
+    this.console.println("\n*** addTime function called ***");
     }
 
     private void checkInventory() {
-        System.out.println("\n*** checkInventory function called ***");
+        this.console.println("\n*** checkInventory function called ***");
     }
 
     private void addIteam() {
-        System.out.println("\n*** addIteam function called ***");
+        this.console.println("\n*** addIteam function called ***");
     }
 
     private void checkInventory(String f) {
-        System.out.println("\n*** checkInventory function called for fruit***");
+        this.console.println("\n*** checkInventory function called for fruit***");
     }
     
 }

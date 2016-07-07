@@ -98,7 +98,7 @@ public class GamePlayMenuView extends View{
             case "O":
                 return true;
             default:
-                System.out.println("\n*** Recheck your keys & enter a valid letter ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
         return true;
@@ -116,17 +116,17 @@ public class GamePlayMenuView extends View{
         Item[] inventory = game.getItems();
         inventory = GameControl.sortList(inventory);
         
-        System.out.println("\nLIST OF INVENTORY ITEMS.");
+        this.console.println("\nLIST OF INVENTORY ITEMS.");
         line = new StringBuilder("                                        ");
         line.insert(0,"DESCRIPTION");
         line.insert(20,"IN STOCK");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (Item item: inventory){
             line = new StringBuilder("                            ");
             line.insert(0, item.getItemType());
             line.insert(23, item.getQuantity());
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }   
     }
     
@@ -136,64 +136,64 @@ public class GamePlayMenuView extends View{
         Game game = Shipwreck.getCurrentGame();
         Food[] foods = game.getFoodStuff();
         
-        System.out.println("\nLIST OF FOOD ITEMS.");
+        this.console.println("\nLIST OF FOOD ITEMS.");
         line = new StringBuilder("                                        ");
         line.insert(0,"DESCRIPTION");
         line.insert(17,"IN STOCK");
         line.insert(30,"LEVEL OF DELICIOUSNESS");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
         
         for (Food food: foods){
             line = new StringBuilder("                            ");
             line.insert(0, food.getFoodType());
             line.insert(20, food.getQuanitiy());
             line.insert(33, food.getHungerFilled());
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
-        System.out.println(GameControl.sumList(foods));
+        this.console.println(GameControl.sumList(foods));
     }
 
     private void huntFood(){
-        System.out.println("\n*** huntFood function called ***");    
+        this.console.println("\n*** huntFood function called ***");    
     }
 
     public long viewMap() {
    
     Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
     
-    System.out.println("Shipwreck Map");
+    this.console.println("Shipwreck Map");
     
-    System.out.println("     0      1      2      3      4");
+    this.console.println("     0      1      2      3      4");
     int rowNum = 0;
     // FOR every row in map
     for (Location[] rowLocation: locations){
         // PRINT a row divider
-        System.out.println("  -----------------------------------");
-        System.out.print(rowNum);
+        this.console.println("  -----------------------------------");
+        this.console.print(rowNum);
         rowNum++;
         // PRINT the row number on a new line
         // FOR every column in row
         for (Location columnLocation: rowLocation){
             // PRINT a column divider
-            System.out.print(" | ");
+            this.console.print(" | ");
             
             // location = locations[row][column]
             // IF location has been visited
             if (columnLocation.isVisited() == true){
                 String displaySymbol = columnLocation.getScene().getDisplaySymbol();
-                System.out.println(displaySymbol);
+                this.console.println(displaySymbol);
             }
             // PRINT the mapSymbol in the scene in this location
             else{
                 // DISPLAY " ?? "
-                System.out.print(" ?? ");
+                this.console.print(" ?? ");
             }
         }
         // PRINT the ending column divider
-    System.out.println("|");
+    this.console.println("|");
     }
     // PRINT ending row divider 
-    System.out.println("  -----------------------------------");   
+    this.console.println("  -----------------------------------");   
     return 0;
 }    
 
@@ -204,15 +204,15 @@ public class GamePlayMenuView extends View{
     }
 
     private void buildMenu() {
-        System.out.println("\n*** buildMenu function called ***");
+        this.console.println("\n*** buildMenu function called ***");
     }
 
     private void weatherMenu() {
-        System.out.println("\n*** weatherMenu function called ***");
+        this.console.println("\n*** weatherMenu function called ***");
     }
 
     private void exploreMenu() {
-        System.out.println("\n*** exploreMenu function called ***");
+        this.console.println("\n*** exploreMenu function called ***");
     }
 
     private void raftMenu() {
@@ -226,19 +226,19 @@ public class GamePlayMenuView extends View{
     }
 
     private void timeMenu() {
-        System.out.println("\n*** timeMenu function called ***");
+        this.console.println("\n*** timeMenu function called ***");
     }
 
     private void characterMenu() {
-        System.out.println("\n*** CharacterMenu function called ***");
+        this.console.println("\n*** CharacterMenu function called ***");
     }
 
     private void saveMenu() {
-        System.out.println("\n*** saveGame function called ***");
+        this.console.println("\n*** saveGame function called ***");
     }
 
     void displayGamePlayMenu() {
-        System.out.println("\n*** GamePlayMenu function called ***");
+        this.console.println("\n*** GamePlayMenu function called ***");
     }
 
 

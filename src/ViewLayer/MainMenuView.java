@@ -48,7 +48,7 @@ public class MainMenuView extends View {
                 this.openHelpMenu();
                 break;
             default:
-                System.out.println("\n*** Recheck your keys & enter a valid letter ***");
+                ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
         return true;
@@ -62,15 +62,32 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("\n*** saveGame function called ***");
+        this.console.println("\n*** Enter the file path for where the game"
+                + "it to be saved. ***");
+        String filePath = this.getInput();
+        try {
+            GameControl.saveGame(Shipwreck.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenueView", ex.getMessage());
+        }
     }
 
     private void continueGame() {
-        System.out.println("\n*** continueGame function called ***");
+        this.console.println("\n\nEnter the file path for file where "
+                + "the game is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        GamePlayMenuView gameMenu = new GamePlayMenuView();
+        gameMenu.display();
     }
 
     private void exitGame() {
-        System.out.println("\n*** exitGame function called ***");
+        this.console.println("\n*** exitGame function called ***");
     }
 
     private void openHelpMenu() {

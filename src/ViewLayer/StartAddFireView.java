@@ -30,18 +30,18 @@ public class StartAddFireView extends View{
         
         
         float burnTime = FireControl.calculateBurnTime(woodAmount);
-        System.out.println("The fire will burn for " + 
+        this.console.println("The fire will burn for " + 
                 burnTime +
                 " Hours.");
         return true;
         }
          
         catch(FireControlException fce){
-        System.out.println(fce.getMessage());
+        this.console.println(fce.getMessage());
         return false;
         }
         catch (NumberFormatException nf) {
-        System.out.println("\nYou must enter a valid number.");
+        ErrorView.display(this.getClass().getName(),"\nYou must enter a valid number.");
         return false;
         }
 
