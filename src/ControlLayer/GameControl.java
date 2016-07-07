@@ -5,7 +5,7 @@
  */
 package ControlLayer;
 
-import Exceptions.GameControlException;
+import ModelLayer.Enemy;
 import ModelLayer.Food;
 import ModelLayer.Game;
 import ModelLayer.Item;
@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import shipwreck.Shipwreck;
+import ModelLayer.Character;
 
 /**
  *
@@ -42,30 +43,75 @@ public class GameControl {
         Shipwreck.setCurrentGame(game);//Save game
 
         game.setPlayer(player); //save player
-
-        Weather weather = new Weather();
-        game.setWeather(weather);
-
+        
         Item[] itemList = GameControl.createItemList(player);
         game.setItems(itemList);
 
-        Food[] foods = GameControl.createFoodList(player);
-        game.setFoodStuff(foods);
+        Food[] foodList = GameControl.createFoodList(player);
+        game.setFoodStuff(foodList);
 
         game.setTime(0);//save time
         game.setBestTime(0); //save best timeMap map = MapControl.createMap;//create new map
 
         Map map = MapControl.createMap();//create new map
         game.setMap(map);//save map
+        
+        Character gameCharacter = GameControl.createGameCharacter(player, map);
+        game.getPlayer().setCharacter(gameCharacter);
+        
+        Enemy[] enemyList = GameControl.createEnemyList();
+        game.setEnemy(enemyList);
 
-        MapControl.moveCharacterToStartLocation(map);// place player in start location
+//        MapControl.moveCharacterToStartLocation(map);// place player in start location
     }
 
-    static void assignSceneLocations(Map map, Scene[] scenes) {
-        System.out.println("AssignSceneLocations called");
-        return;
+    public static Character createGameCharacter(Player player, Map map){
+    Character gameCharacter = new Character();
+    
+    gameCharacter.setAttack(0);
+    gameCharacter.setDefense(5);
+    gameCharacter.setHealth(30);
+    gameCharacter.setName(player.getName());
+    gameCharacter.setHunger(20);
+    gameCharacter.setLocation(map.locations[1][1]);
+    
+    player.setCharacter(gameCharacter);
+    return gameCharacter;
     }
-
+    
+    
+    public enum enemies {
+        Boar,
+        Cannibal;
+    }
+    
+    public static Enemy[] createEnemyList()
+    {
+        Enemy[] enemyList = new Enemy[3];
+        
+        Enemy boar = new Enemy();
+        boar.setName("Boar");
+        boar.setHealth(10);
+        boar.setAttack(3);
+        boar.setDefense(3);
+        boar.setHunger(20);
+        boar.setMeat(5);
+        boar.setLocation(Shipwreck.getCurrentGame().getMap().locations[0][2]);
+        enemyList[enemies.Boar.ordinal()] = boar;
+        
+        Enemy cannibal = new Enemy();
+        cannibal.setName("Cannibal");
+        cannibal.setHealth(15);
+        cannibal.setAttack(5);
+        cannibal.setDefense(2);
+        cannibal.setHunger(20);
+        cannibal.setMeat(5);
+        cannibal.setLocation(Shipwreck.getCurrentGame().getMap().locations[3][4]);
+        enemyList[enemies.Cannibal.ordinal()] = cannibal;
+        
+        return enemyList;
+    }
+    
     public enum Items {
         Wood,
         Match,
@@ -87,10 +133,6 @@ public class GameControl {
         match.setQuantity(3);
         itemList[Items.Match.ordinal()] = match;
 
-        Item spear = new Item();
-        spear.setItemType("Spear");
-        spear.setQuantity(0);
-        itemList[Items.Spear.ordinal()] = spear;
 
         Item vine = new Item();
         vine.setItemType("Vine");
@@ -138,7 +180,7 @@ public class GameControl {
     public static int sumList(Food[] foodSum){
     int total= 0;
     for (Food food : foodSum){
-        total = total + foodSum.getHungerFilled();
+//        total = total + foodSum.getHungerFilled();
         return total;
     }
     return total;

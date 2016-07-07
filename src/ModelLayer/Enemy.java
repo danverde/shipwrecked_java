@@ -16,6 +16,7 @@ public class Enemy extends Character implements Serializable{
     private int meat;
 
     public Enemy() {
+        super(5);
     }
 
     public int getMeat() {
