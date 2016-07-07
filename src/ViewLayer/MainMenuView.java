@@ -38,7 +38,7 @@ public class MainMenuView extends View {
             case "S":
                 this.saveGame();
                 break;
-            case "X":
+            case "C":
                 this.continueGame();
                 break;
             case "E":
