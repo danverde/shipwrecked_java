@@ -22,7 +22,7 @@ public class HelpMenuView extends View {
                   + "\nK - Combat Help"
                   + "\nB - Building Help"
                   + "\nW - Weather Explanation"
-                  + "\nX - Continue On"
+                  + "\nC - Continue On"
                   + "\n----------------------------------");
 }
 
@@ -49,13 +49,13 @@ public class HelpMenuView extends View {
             case "W":
                 this.weatherExplanation();
                 break;
-            case "X":
+            case "C":
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
-        return true;
+        return false;
     }
 
     private void gamePurpose() {

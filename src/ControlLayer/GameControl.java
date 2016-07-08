@@ -5,6 +5,7 @@
  */
 package ControlLayer;
 
+import Exceptions.GameControlException;
 import ModelLayer.Enemy;
 import ModelLayer.Food;
 import ModelLayer.Game;

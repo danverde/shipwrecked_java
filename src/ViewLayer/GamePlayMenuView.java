@@ -101,7 +101,7 @@ public class GamePlayMenuView extends View{
                 ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
-        return true;
+        return false;
     }
         
       private void openHelpMenu() {

@@ -51,7 +51,7 @@ public class MainMenuView extends View {
                 ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
-        return true;
+        return false;
     }
 
     private void startNewGame() {
@@ -74,7 +74,7 @@ public class MainMenuView extends View {
 
     private void continueGame() {
         this.console.println("\n\nEnter the file path for file where "
-                + "the game is to be saved.");
+                + "the game is saved.");
         String filePath = this.getInput();
         
         try {

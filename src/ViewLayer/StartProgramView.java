@@ -42,7 +42,7 @@ public class StartProgramView extends View{
             return false;
         }
         this.displayNextView(player);
-        return true;
+        return false;
     }
 
     private void displayNextView(Player player) {
