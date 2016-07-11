@@ -29,9 +29,9 @@ public class MoveLocationView extends View{
        {
            throw new MapControlException("Invalid direction. Please Enter either N, E, S, or W.");
        }
-       if (distance < 1 || distance > 5)
+       if (distance < 0 || distance > 5)
        {
-           throw new MapControlException ("Invalid distance. Value must be greater than 0 & less than 6");
+           throw new MapControlException ("Invalid distance. Value must be positive & less than 6");
        }
 
        MapControl.moveCharacter(direction, distance);
@@ -39,7 +39,7 @@ public class MoveLocationView extends View{
        }
        catch (MapControlException mce){
        this.console.println(mce.getMessage());
-           return false;   
+           return true;   
        }
     } 
 }

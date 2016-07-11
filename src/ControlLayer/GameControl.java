@@ -20,6 +20,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import shipwreck.Shipwreck;
 import ModelLayer.Character;
+import java.util.ArrayList;
 
 /**
  *
@@ -75,6 +76,8 @@ public class GameControl {
     gameCharacter.setName(player.getName());
     gameCharacter.setHunger(20);
     gameCharacter.setLocation(map.locations[1][1]);
+    map.locations[1][1].setVisited(true);
+    map.locations[1][1].getCharacters().add(gameCharacter);
     
     player.setCharacter(gameCharacter);
     return gameCharacter;

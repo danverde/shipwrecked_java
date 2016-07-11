@@ -17,7 +17,7 @@ public class Location implements Serializable{
     public int row;
     public boolean visited;
     private Scene scene;
-    public ArrayList<Character> character;
+    public ArrayList<Character> characters = new ArrayList();
 
     public Location() {
     }
@@ -45,14 +45,15 @@ public class Location implements Serializable{
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
-        public ArrayList<Character> getCharacter() {
-        return character;
+
+    public ArrayList<Character> getCharacters() {
+        return characters;
     }
 
-    public void setCharacter(ArrayList<Character> character) {
-        this.character = character;
+    public void setCharacters(ArrayList<Character> characters) {
+        this.characters = characters;
     }
-    
+
     public Scene getScene() {
         return scene;
     }

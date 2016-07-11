@@ -181,7 +181,7 @@ public class GamePlayMenuView extends View{
             // IF location has been visited
             if (columnLocation.isVisited() == true){
                 String displaySymbol = columnLocation.getScene().getDisplaySymbol();
-                this.console.println(displaySymbol);
+                this.console.print(displaySymbol);
             }
             // PRINT the mapSymbol in the scene in this location
             else{

@@ -62,6 +62,7 @@ public class MapControl {
                 }
                 for (int c = col; c <= distance; c++) {
                     locations[row][c].getScene().setVisited(true);
+//                    locations[row][c].getCharacters().add(gameCharacter);
                     if (locations[row][c].getScene().isBlockedLocation()){
                         throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
                     }   
@@ -150,12 +151,12 @@ public class MapControl {
 
         Scene[] scenes = new Scene[Scenes.values().length];
 
-        Scene startingScene = new Scene();
-        startingScene.setDescription("Beach");
-        startingScene.setDisplaySymbol("  B ");
-        startingScene.setBlockedLocation(false);
-        startingScene.setTimeTravel(2);
-        scenes[Scenes.Starting.ordinal()] = startingScene;
+        Scene beach = new Scene();
+        beach.setDescription("Beach");
+        beach.setDisplaySymbol("  B ");
+        beach.setBlockedLocation(false);
+        beach.setTimeTravel(2);
+        scenes[Scenes.Beach.ordinal()] = beach;
 
         Scene campScene = new Scene();
         campScene.setDescription("Camp");
@@ -168,6 +169,7 @@ public class MapControl {
         forestScene.setDescription("Forest");
         forestScene.setDisplaySymbol("  F ");
         forestScene.setBlockedLocation(false);
+        forestScene.setVisited(true);
         forestScene.setTimeTravel(2);
         scenes[Scenes.Forest.ordinal()] = forestScene;
 
@@ -182,6 +184,7 @@ public class MapControl {
         cliffScene.setDescription("Cliffs");
         cliffScene.setDisplaySymbol(" CL ");
         cliffScene.setBlockedLocation(true);
+        cliffScene.setVisited(true);
         cliffScene.setTimeTravel(2);
         scenes[Scenes.Cliff.ordinal()] = cliffScene;
 
