@@ -5,6 +5,7 @@
  */
 package ControlLayer;
 
+import Exceptions.MapControlException;
 import ModelLayer.FightScene;
 import ModelLayer.Location;
 import ModelLayer.Map;
@@ -28,7 +29,7 @@ public class MapControl {
         return map;
     }
 
-    public static void moveCharacter(char direction, int distance) {
+    public static void moveCharacter(char direction, int distance) throws MapControlException {
         // get current location
         int col = Shipwreck.getCurrentGame().getPlayer().getCharacter().getLocation().getColumn();
         int row = Shipwreck.getCurrentGame().getPlayer().getCharacter().getLocation().getRow();
@@ -36,50 +37,66 @@ public class MapControl {
         Character gameCharacter = Shipwreck.getPlayer().getCharacter();
         Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
 
+        //remove character from the current location -> I never set this to begin with!!!
+//        locations[row][col].character.remove(gameCharacter);
+        
         // apply requested movement
         switch (direction) {
             case 'N':
                 distance -= row;
+                if (distance < 0){
+                    throw new MapControlException ("You can't walk off the map silly!");
+                }
                 for (int r = row; r >= distance; r--) {
                     locations[r][col].getScene().setVisited(true);
                     if (locations[r][col].getScene().isBlockedLocation()){
-                        break;
+                        throw new MapControlException("You were blocked by " + locations[r][col].getScene().getDescription());
                     }   
                     gameCharacter.setLocation(locations[r][col]);
                 }
                 break;
             case 'E':
                 distance += col;
+                if (distance > 5){
+                    throw new MapControlException ("You can't walk off the map silly!");
+                }
                 for (int c = col; c <= distance; c++) {
                     locations[row][c].getScene().setVisited(true);
                     if (locations[row][c].getScene().isBlockedLocation()){
-                        break;
+                        throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
                     }   
                     gameCharacter.setLocation(locations[row][c]);
                 }
                 break;
             case 'S':
                 distance += row;
+                if (distance > 5){
+                    throw new MapControlException ("You can't walk off the map silly!");
+                }
                 for (int r = row; r <= distance; r++) {
                     locations[r][col].getScene().setVisited(true);
                     if (locations[r][col].getScene().isBlockedLocation()){
-                        break;
+                        throw new MapControlException("You were blocked by " + locations[r][col].getScene().getDescription());
                     }   
                     gameCharacter.setLocation(locations[r][col]);
                 }
                 break;
             case 'W':
               distance -= col;
+              if (distance < 0){
+                    throw new MapControlException ("You can't walk off the map silly!");
+                }
                 for (int c = col; c >= distance; c--) {
                     locations[row][c].getScene().setVisited(true);
                     if (locations[row][c].getScene().isBlockedLocation()){
-                        break;
+                        throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
                     }   
                     gameCharacter.setLocation(locations[row][c]);
                 }
                 break;
+            default:
+                throw new MapControlException ("Something went wrong. We're sorry.");
         }
-        // check for errors
     }
 
     public enum Scenes {
@@ -134,21 +151,21 @@ public class MapControl {
         Scene[] scenes = new Scene[Scenes.values().length];
 
         Scene startingScene = new Scene();
-        startingScene.setDescription("Welcome to the Beach. Don't go Swimming.");
+        startingScene.setDescription("Beach");
         startingScene.setDisplaySymbol("  B ");
         startingScene.setBlockedLocation(false);
         startingScene.setTimeTravel(2);
         scenes[Scenes.Starting.ordinal()] = startingScene;
 
         Scene campScene = new Scene();
-        campScene.setDescription("Welcome to the Camp. Don't get lost.");
+        campScene.setDescription("Camp");
         campScene.setDisplaySymbol("  C ");
         campScene.setBlockedLocation(false);
         campScene.setTimeTravel(2);
         scenes[Scenes.Camp.ordinal()] = campScene;
 
         Scene forestScene = new ResourceScene();
-        forestScene.setDescription("Welcome to the forest. Don't get eaten.");
+        forestScene.setDescription("Forest");
         forestScene.setDisplaySymbol("  F ");
         forestScene.setBlockedLocation(false);
         forestScene.setTimeTravel(2);
@@ -162,49 +179,34 @@ public class MapControl {
         scenes[Scenes.Enemy.ordinal()] = enemyScene;
 
         Scene cliffScene = new Scene();
-        cliffScene.setDescription("You shall not pass.");
+        cliffScene.setDescription("Cliffs");
         cliffScene.setDisplaySymbol(" CL ");
         cliffScene.setBlockedLocation(true);
         cliffScene.setTimeTravel(2);
         scenes[Scenes.Cliff.ordinal()] = cliffScene;
 
         Scene townScene = new Scene();
-        townScene.setDescription("You are saved.");
+        townScene.setDescription("Town");
         townScene.setDisplaySymbol("  T ");
         townScene.setBlockedLocation(false);
         townScene.setTimeTravel(2);
         scenes[Scenes.Town.ordinal()] = townScene;
 
-        Scene stoneScene = new ResourceScene();
-        stoneScene.setDescription("You are saved.");
+        ResourceScene stoneScene = new ResourceScene();
+        stoneScene.setDescription("Stone");
         stoneScene.setDisplaySymbol("  F ");
+        stoneScene.setResourceType("Stone");
         stoneScene.setBlockedLocation(false);
         stoneScene.setTimeTravel(2);
         scenes[Scenes.Stone.ordinal()] = stoneScene;
 
         Scene waterScene = new Scene();
-        waterScene.setDescription("Don't drown.");
+        waterScene.setDescription("Water");
         waterScene.setDisplaySymbol("  W ");
         waterScene.setBlockedLocation(true);
         waterScene.setTimeTravel(2);
         scenes[Scenes.Water.ordinal()] = waterScene;
 
-        Scene BeachScene = new Scene();
-        BeachScene.setDescription("Welcome to the beach");
-        BeachScene.setDisplaySymbol("  B ");
-        BeachScene.setBlockedLocation(false);
-        BeachScene.setTimeTravel(2);
-        scenes[Scenes.Beach.ordinal()] = BeachScene;
-
         return scenes;
     }
 }
-
-//    public static void moveCharacterToStartLocation(Map map) {
-//        Location[][] location = map.getLocations();
-//        Shipwreck.getCurrentGame().getPlayer().getCharacter().setLocation(location[1][1]);
-//
-//        System.out.println(Shipwreck.getPlayer().getCharacter().getLocation());
-//        return;
-//    }
-//}

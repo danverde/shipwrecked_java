@@ -17,7 +17,7 @@ public class Location implements Serializable{
     public int row;
     public boolean visited;
     private Scene scene;
-    private ArrayList<Character> character;
+    public ArrayList<Character> character;
 
     public Location() {
     }
