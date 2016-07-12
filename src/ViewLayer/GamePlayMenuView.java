@@ -31,7 +31,7 @@ public class GamePlayMenuView extends View{
                   + "\n----------------------------------"
                   + "\nR - View Resources"
                   + "\nJ - View Food"
-                  + "\nX - Hunt for Food"
+                  + "\nQ - Hunt for Food"
                   + "\nM - View Map / Current Location"
                   + "\nL - Move to Different Location"
                   + "\nB - Build Survival Item"
@@ -44,7 +44,7 @@ public class GamePlayMenuView extends View{
                   + "\nO - Main Menu"
                   + "\nH - Help Menu"
                   + "\nS - Save Game"
-                  + "\nQ - Quit Game"
+                  + "\nX - Quit Game"
                   + "\n----------------------------------");
 }
     
@@ -59,7 +59,7 @@ public class GamePlayMenuView extends View{
             case "J":
                 this.viewFood();
                 break;
-            case "X":
+            case "Q":
                 this.huntFood();
                 break;
             case "M":
