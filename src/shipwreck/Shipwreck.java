@@ -38,6 +38,7 @@ public class Shipwreck {
     private static BufferedReader inFile = null;
     
     private static PrintWriter logFile = null;
+    private static PrintWriter mapFile = null;
 
     public static void main(String[] args) {
         try {    
@@ -47,6 +48,9 @@ public class Shipwreck {
             
             String filePath = "log.txt";
             Shipwreck.logFile = new PrintWriter(filePath);
+            
+            String mapPath = "map.txt";
+            Shipwreck.mapFile = new PrintWriter(mapPath);
             StartProgramView StartProgramView = new StartProgramView();
 
             StartProgramView.display();
