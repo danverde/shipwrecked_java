@@ -14,7 +14,7 @@ import shipwreck.Shipwreck;
  *
  * @author Jack
  */
-public class PrintMap {
+public class PrintMap{
     
     private static final PrintWriter mapFile = Shipwreck.getOutFile();
 
@@ -23,6 +23,5 @@ public class PrintMap {
                        , Scene.getDescription()
         );
 
-}
-    
+    }    
 }
