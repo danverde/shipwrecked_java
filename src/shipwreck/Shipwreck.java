@@ -33,48 +33,62 @@ public class Shipwreck {
 
     private static Game currentGame = null;
     private static Player player = null;
-    
+
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-    
+
     private static PrintWriter logFile = null;
     private static PrintWriter mapFile = null;
+    private static PrintWriter itemsFile = null;
 
     public static void main(String[] args) {
-        try {    
-            Shipwreck.inFile = 
-                    new BufferedReader(new InputStreamReader(System.in));
+        try {
+            Shipwreck.inFile
+                    = new BufferedReader(new InputStreamReader(System.in));
             Shipwreck.outFile = new PrintWriter(System.out, true);
-            
+
             String filePath = "log.txt";
             Shipwreck.logFile = new PrintWriter(filePath);
-            
+
             String mapPath = "map.txt";
             Shipwreck.mapFile = new PrintWriter(mapPath);
-            StartProgramView StartProgramView = new StartProgramView();
 
+            String itemsPath = "items.txt";
+            Shipwreck.itemsFile = new PrintWriter(itemsPath);
+
+            StartProgramView StartProgramView = new StartProgramView();
             StartProgramView.display();
-        }
-        catch(Throwable te){
-            System.out.println(te.getMessage());
+            
+        } catch (Throwable te) {
+            System.out.println("\nException: " + te.toString() +
+                               "\nMessage: " + te.getMessage());
             te.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
-                if (inFile != null)
-                inFile.close();
+                if (inFile != null) {
+                    Shipwreck.inFile.close();
+                }
+
+                if (outFile != null) {
+                    Shipwreck.outFile.close();
+                }
+
+                if (logFile != null) {
+                    Shipwreck.logFile.close();
+                }
                 
-                if (outFile !=null)
-                outFile.close();
+                if (mapFile != null) {
+                    Shipwreck.mapFile.close();
+                }
                 
-                if (logFile !=null)
-                    logFile.close();
+                if (itemsFile != null) {
+                    Shipwreck.itemsFile.close();
+                }
             } catch (IOException ex) {
                 Logger.getLogger(Shipwreck.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        
-    }
+        }
     }
 
     public static PrintWriter getLogFile() {
@@ -110,8 +124,14 @@ public class Shipwreck {
     public static void setInFile(BufferedReader infile) {
         Shipwreck.inFile = infile;
     }
-    
-    
+
+    public static PrintWriter getItemsFile() {
+        return itemsFile;
+    }
+
+    public static void setItemsFile(PrintWriter itemsFile) {
+        Shipwreck.itemsFile = itemsFile;
+    }
 
     public static Game getCurrentGame() {
         return currentGame;
