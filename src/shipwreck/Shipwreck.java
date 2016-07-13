@@ -84,6 +84,14 @@ public class Shipwreck {
     public static void setLogFile(PrintWriter logFile) {
         Shipwreck.logFile = logFile;
     }
+
+    public static PrintWriter getMapFile() {
+        return mapFile;
+    }
+
+    public static void setMapFile(PrintWriter mapFile) {
+        Shipwreck.mapFile = mapFile;
+    }
         
     
 
