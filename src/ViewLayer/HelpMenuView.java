@@ -4,33 +4,40 @@
  * and open the template in the editor.
  */
 package ViewLayer;
+
+import ModelLayer.Item;
+import java.io.IOException;
+import java.io.PrintWriter;
+import static java.lang.System.out;
+import shipwreck.Shipwreck;
+import static sun.misc.MessageUtils.out;
+
 /**
  *
  * @author Daniel
  */
 public class HelpMenuView extends View {
-    
-    
-     public HelpMenuView() {
-        super   ("\n"
-                  + "\n----------------------------------" 
-                  + "\n| Help Menu"
-                  + "\n----------------------------------"
-                  + "\nG - Purpose of the Game"
-                  + "\nM - How to Move"
-                  + "\nR - Resource Help"
-                  + "\nK - Combat Help"
-                  + "\nB - Building Help"
-                  + "\nW - Weather Explanation"
-                  + "\nC - Continue On"
-                  + "\n----------------------------------");
-}
 
-    
+    public HelpMenuView() {
+        super("\n"
+                + "\n----------------------------------"
+                + "\n| Help Menu"
+                + "\n----------------------------------"
+                + "\nG - Purpose of the Game"
+                + "\nM - How to Move"
+                + "\nR - Resource Help"
+                + "\nK - Combat Help"
+                + "\nB - Building Help"
+                + "\nW - Weather Explanation"
+                + "\nI - Print Current Item List"
+                + "\nX - Continue On"
+                + "\n----------------------------------");
+    }
+
     @Override
     public boolean doAction(String menuOption) {
         menuOption = menuOption.toUpperCase();
-        switch (menuOption){
+        switch (menuOption) {
             case "G":
                 this.gamePurpose();
                 break;
@@ -49,10 +56,13 @@ public class HelpMenuView extends View {
             case "W":
                 this.weatherExplanation();
                 break;
-            case "C":
+            case "I":
+                this.printItems();
+                break;
+            case "X":
                 return true;
             default:
-                ErrorView.display(this.getClass().getName(),"\n*** Recheck your keys & enter a valid letter ***");
+                ErrorView.display(this.getClass().getName(), "\n*** Recheck your keys & enter a valid letter ***");
                 break;
         }
         return false;
@@ -60,13 +70,13 @@ public class HelpMenuView extends View {
 
     private void gamePurpose() {
         this.console.println("*************************************************************************"
-                         + "\n   The purpose of the Game is to survive however you can. Stuck on a"
-                         + "\ntropical Island you can either try and escape on your own by buildng"
-                         + "\na raft & floating to safety. Or maybe building a large signal fire on"
-                         + "\nthe beach will attract help…. Maybe your best bet is to simply wait"
-                         + "\npatiently till someone comes to find you. I mean, after such a big ship"
-                         + "\nwent down SOMEONE’s bound to come looking for survivors… Right?"
-                         + "\n*************************************************************************");
+                + "\n   The purpose of the Game is to survive however you can. Stuck on a"
+                + "\ntropical Island you can either try and escape on your own by buildng"
+                + "\na raft & floating to safety. Or maybe building a large signal fire on"
+                + "\nthe beach will attract help…. Maybe your best bet is to simply wait"
+                + "\npatiently till someone comes to find you. I mean, after such a big ship"
+                + "\nwent down SOMEONE’s bound to come looking for survivors… Right?"
+                + "\n*************************************************************************");
     }
 
     private void movementHelp() {
@@ -87,6 +97,25 @@ public class HelpMenuView extends View {
 
     private void weatherExplanation() {
         this.console.println("*** weatherExplanation function called***");
+    }
+
+    public void printItems() {
+        Item[] itemList = Shipwreck.getCurrentGame().getItems();
+        String outputLocation = "itemsFile";
+        
+        try (PrintWriter out = new PrintWriter(outputLocation)){
+        out.println("\n          *** Inventory Report ***");
+        out.printf("%n%-10s%-5s", "Description", "Quantity");
+        out.printf("%n%-10s%-5s", "-----------", "--------");
+
+        for (Item item : itemList) {
+            out.printf("%n%-10s%-5d", item.getItemType(), item.getQuantity());
+        }
+        }
+        catch (IOException ex){
+            System.out.println("I/O Error: " + ex.getMessage());
+        }
+
     }
 
 }
