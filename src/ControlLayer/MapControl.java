@@ -62,11 +62,12 @@ public class MapControl {
                 }
                 for (int c = col; c <= distance; c++) {
                     locations[row][c].setVisited(true);
-//                    locations[row][c].getCharacters().add(gameCharacter);
                     if (locations[row][c].getScene().isBlockedLocation()){
                         throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
                     }   
                     gameCharacter.setLocation(locations[row][c]);
+                    locations[row][c-1].getCharacters().remove(gameCharacter);
+                    locations[row][c].getCharacters().add(gameCharacter);
                 }
                 break;
             case 'S':

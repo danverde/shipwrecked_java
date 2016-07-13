@@ -99,6 +99,14 @@ public class Shipwreck {
         Shipwreck.logFile = logFile;
     }
 
+    public static PrintWriter getMapFile() {
+        return mapFile;
+    }
+
+    public static void setMapFile(PrintWriter mapFile) {
+        Shipwreck.mapFile = mapFile;
+    }
+
     public static PrintWriter getOutFile() {
         return outFile;
     }

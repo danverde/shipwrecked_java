@@ -171,7 +171,10 @@ public class GamePlayMenuView extends View{
             
             // location = locations[row][column]
             // IF location has been visited
-            if (columnLocation.isVisited() == true){
+            if (!columnLocation.getCharacters().isEmpty()){
+                this.console.print(" ** ");
+            }
+            else if (columnLocation.isVisited() == true){
                 String displaySymbol = columnLocation.getScene().getDisplaySymbol();
                 this.console.print(displaySymbol);
             }
