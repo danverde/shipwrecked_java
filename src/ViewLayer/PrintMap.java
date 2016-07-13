@@ -19,9 +19,9 @@ public class PrintMap{
     private static final PrintWriter mapFile = Shipwreck.getOutFile();
 
     public static void display(String DisplaySymbol, String Description){
-        out.printf("%N%-4s%40s",Scene.getDisplaySymbol()
-                       , Scene.getDescription()
-        );
+//        out.printf("%N%-4s%40s",Scene.getDisplaySymbol()
+//                       , Scene.getDescription()
+//        );
 
     }    
 }

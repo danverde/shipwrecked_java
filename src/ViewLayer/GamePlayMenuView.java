@@ -35,11 +35,9 @@ public class GamePlayMenuView extends View{
                   + "\nM - View Map / Current Location"
                   + "\nL - Move to Different Location"
                   + "\nB - Build Survival Item"
-                  + "\nW - Predict Weather"
                   + "\nE - Explore Area"
                   + "\nD - Deploy Raft"
                   + "\nF - Check Signal Fire"
-                  + "\nT - Check Elapsed Time"
                   + "\nC - Check Status of Character"
                   + "\nO - Main Menu"
                   + "\nH - Help Menu"
@@ -71,9 +69,6 @@ public class GamePlayMenuView extends View{
             case "B":
                 this.buildMenu();
                 break;
-            case "W":
-                this.weatherMenu();
-                break;
             case "E":
                 this.exploreMenu();
                 break;
@@ -82,9 +77,6 @@ public class GamePlayMenuView extends View{
                 break;
             case "F":
                 this.fireMenu();
-                break;
-            case "T":
-                this.timeMenu();
                 break;
             case "C":
                 this.characterMenu();
