@@ -106,8 +106,6 @@ public class Shipwreck {
     public static void setMapFile(PrintWriter mapFile) {
         Shipwreck.mapFile = mapFile;
     }
-        
-    
 
     public static PrintWriter getOutFile() {
         return outFile;
