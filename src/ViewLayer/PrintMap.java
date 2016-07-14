@@ -10,20 +10,19 @@ import shipwreck.Shipwreck;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 /**
  *
  * @author Jack
  */
-public class PrintMap { 
-    public void printMap(ArrayList<Scene> scenes, String mapFile ){
-        try(PrintWriter out = new PrintWriter(mapfile)){
+public class PrintMap extends View{ 
+    public void printMap(Scene[] scenes, String mapFile ){
+        try(PrintWriter out = new PrintWriter(mapFile)){
             out.println("\n\n         Map Description        ");
             
             for (Scene scene : scenes){
-            out.printf("%N%-4s%40s",Scene.getDisplaySymbol()
-                       , Scene.getDescription());
+            out.printf("%N%-4s%40s",scene.getDisplaySymbol()
+                       , scene.getDescription());
             }
         }  catch (IOException ex){
     System.out.println("I/O Error: " + ex.getMessage());
@@ -32,4 +31,9 @@ public class PrintMap {
     
     
 }
+
+    @Override
+    public boolean doAction(String value) {
+       return true; 
+    }
 }

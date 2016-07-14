@@ -9,7 +9,6 @@ import ModelLayer.Game;
 import ModelLayer.Location;
 import ModelLayer.Map;
 import ModelLayer.Player;
-import ModelLayer.ResourceScene;
 import ModelLayer.Scene;
 import ModelLayer.Character;
 import ModelLayer.Weather;

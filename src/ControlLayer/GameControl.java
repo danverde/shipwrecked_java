@@ -134,7 +134,7 @@ public class GameControl {
 
         Item match = new Item();
         match.setItemType("Match");
-        match.setQuantity(3);
+        match.setQuantity(0);
         itemList[Items.Match.ordinal()] = match;
 
 

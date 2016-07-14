@@ -5,10 +5,13 @@
  */
 package ViewLayer;
 
+import ControlLayer.MapControl;
 import ModelLayer.Item;
+import ModelLayer.Scene;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
+import java.util.ArrayList;
 import shipwreck.Shipwreck;
 import static sun.misc.MessageUtils.out;
 
@@ -25,6 +28,7 @@ public class HelpMenuView extends View {
                 + "\n----------------------------------"
                 + "\nG - Purpose of the Game"
                 + "\nM - How to Move"
+                + "\nN - Map Terminolagy"
                 + "\nR - Resource Help"
                 + "\nK - Combat Help"
                 + "\nB - Building Help"
@@ -59,8 +63,9 @@ public class HelpMenuView extends View {
             case "I":
                 this.printItems();
                 break;
-            case "X":
-                return true;
+            case "N":
+                this.mapHelp();
+                break;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Recheck your keys & enter a valid letter ***");
                 break;
@@ -116,6 +121,17 @@ public class HelpMenuView extends View {
             System.out.println("I/O Error: " + ex.getMessage());
         }
 
+    }
+
+    private void mapHelp() {
+        this.console.println("\n\nEnter the file path for where to "
+                + "print this guide");
+        String mapFile = this.getInput();
+        try{
+            PrintMap.printMap(MapControl.createScenes(), mapFile);
+        } catch (Exception ex){
+            ErrorView.display("mapFile", ex.displayMessage());
+        }
     }
 
 }

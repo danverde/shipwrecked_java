@@ -9,7 +9,6 @@ import Exceptions.MapControlException;
 import ModelLayer.FightScene;
 import ModelLayer.Location;
 import ModelLayer.Map;
-import ModelLayer.ResourceScene;
 import ModelLayer.Scene;
 import shipwreck.Shipwreck;
 import ModelLayer.Character;
@@ -147,7 +146,7 @@ public class MapControl {
 
     }
 
-    private static Scene[] createScenes() {
+    public static Scene[] createScenes() {
 
         Scene[] scenes = new Scene[Scenes.values().length];
 
