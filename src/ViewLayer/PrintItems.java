@@ -5,6 +5,7 @@
  */
 package ViewLayer;
 
+import ControlLayer.GameControl;
 import ModelLayer.Item;
 import ModelLayer.Scene;
 import java.io.IOException;
@@ -12,19 +13,19 @@ import java.io.PrintWriter;
 import static java.lang.System.out;
 import shipwreck.Shipwreck;
 
-public class PrintItems {
+public class PrintItems extends View {
 
-    private static final PrintWriter itemsFile = Shipwreck.getItemsFile();
+    public PrintItems() {
+        super("\n*** Enter the filename for the Item list. ***");
+    }
 
-    public static void printItems() {
-//        System.out.println("PrintItems called");
-        
+    @Override
+    public boolean doAction(String filePath) {
         Item[] itemList = Shipwreck.getCurrentGame().getItems();
-        String outputLocation = "itemsFile";
 
-        try (PrintWriter out = new PrintWriter(outputLocation)) {
+        try (PrintWriter out = new PrintWriter(filePath)) {
             out.println("\n          *** Inventory Report ***");
-            out.printf("%n%-10s%-5s", "Description", "Quantity");
+            out.printf("%n%-10s%-15s", "Description", "Quantity");
             out.printf("%n%-10s%-5s", "-----------", "--------");
 
             for (Item item : itemList) {
@@ -33,5 +34,6 @@ public class PrintItems {
         } catch (IOException ex) {
             System.out.println("I/O Error: " + ex.getMessage());
         }
+        return true;
     }
 }

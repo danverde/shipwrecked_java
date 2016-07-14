@@ -1,7 +1,7 @@
 
           *** Inventory Report ***
 
-DescriptionQuantity
+DescriptionQuantity       
 -------------------
 Wood      0    
 Match     3    
