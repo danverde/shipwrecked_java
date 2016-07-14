@@ -119,13 +119,12 @@ public class GameControl {
     public enum Items {
         Wood,
         Match,
-        Spear,
         Vine,
         Stone;
     }
 
     public static Item[] createItemList(Player player) {
-        Item[] itemList = new Item[5];
+        Item[] itemList = new Item[4];
 
         Item wood = new Item();
         wood.setItemType("Wood");
@@ -136,7 +135,6 @@ public class GameControl {
         match.setItemType("Match");
         match.setQuantity(0);
         itemList[Items.Match.ordinal()] = match;
-
 
         Item vine = new Item();
         vine.setItemType("Vine");

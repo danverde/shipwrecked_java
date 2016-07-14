@@ -14,12 +14,12 @@ public class PrintItems{
     
     private static final PrintWriter itemsFile = Shipwreck.getItemsFile();
     
-    public static void displayItems(String itemType, int quantity){
-    this.console.println();
-    }
-
-    @Override
-    public boolean doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public static void displayItems(String itemType, int quantity){
+//    this.console.println();
+//    }
+//
+//    @Override
+//    public boolean doAction(String value) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }

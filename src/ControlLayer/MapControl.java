@@ -47,7 +47,7 @@ public class MapControl {
                     throw new MapControlException ("You can't walk off the map silly!");
                 }
                 for (int r = row; r >= distance; r--) {
-                    locations[r][col].getScene().setVisited(true);
+                    locations[r][col].setVisited(true);
                     if (locations[r][col].getScene().isBlockedLocation()){
                         throw new MapControlException("You were blocked by " + locations[r][col].getScene().getDescription());
                     }   
@@ -60,12 +60,13 @@ public class MapControl {
                     throw new MapControlException ("You can't walk off the map silly!");
                 }
                 for (int c = col; c <= distance; c++) {
-                    locations[row][c].getScene().setVisited(true);
-//                    locations[row][c].getCharacters().add(gameCharacter);
+                    locations[row][c].setVisited(true);
                     if (locations[row][c].getScene().isBlockedLocation()){
                         throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
                     }   
                     gameCharacter.setLocation(locations[row][c]);
+                    locations[row][c-1].getCharacters().remove(gameCharacter);
+                    locations[row][c].getCharacters().add(gameCharacter);
                 }
                 break;
             case 'S':
@@ -74,7 +75,7 @@ public class MapControl {
                     throw new MapControlException ("You can't walk off the map silly!");
                 }
                 for (int r = row; r <= distance; r++) {
-                    locations[r][col].getScene().setVisited(true);
+                    locations[r][col].setVisited(true);
                     if (locations[r][col].getScene().isBlockedLocation()){
                         throw new MapControlException("You were blocked by " + locations[r][col].getScene().getDescription());
                     }   
@@ -87,7 +88,7 @@ public class MapControl {
                     throw new MapControlException ("You can't walk off the map silly!");
                 }
                 for (int c = col; c >= distance; c--) {
-                    locations[row][c].getScene().setVisited(true);
+                    locations[row][c].setVisited(true);
                     if (locations[row][c].getScene().isBlockedLocation()){
                         throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
                     }   
