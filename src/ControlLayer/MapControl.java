@@ -36,67 +36,84 @@ public class MapControl {
         Character gameCharacter = Shipwreck.getPlayer().getCharacter();
         Location[][] locations = Shipwreck.getCurrentGame().getMap().getLocations();
 
-        //remove character from the current location -> I never set this to begin with!!!
-//        locations[row][col].character.remove(gameCharacter);
-        
-        // apply requested movement
         switch (direction) {
             case 'N':
                 distance -= row;
-                if (distance < 0){
-                    throw new MapControlException ("You can't walk off the map silly!");
+                if (distance < 0) {
+                    throw new MapControlException("You can't walk off the map silly!");
                 }
+                locations[row][col].getCharacters().remove(gameCharacter);
                 for (int r = row; r >= distance; r--) {
                     locations[r][col].setVisited(true);
-                    if (locations[r][col].getScene().isBlockedLocation()){
+                    if (locations[r][col].getScene().isBlockedLocation()) {
+                        gameCharacter.setLocation(locations[r + 1][col]);
+                        locations[r + 1][col].getCharacters().add(gameCharacter);
                         throw new MapControlException("You were blocked by " + locations[r][col].getScene().getDescription());
-                    }   
-                    gameCharacter.setLocation(locations[r][col]);
+
+                    }
+                    row--;
                 }
+                gameCharacter.setLocation(locations[row + 1][col]);
+                locations[row + 1][col].getCharacters().add(gameCharacter);
                 break;
             case 'E':
                 distance += col;
-                if (distance > 5){
-                    throw new MapControlException ("You can't walk off the map silly!");
+                if (distance > 5) {
+                    throw new MapControlException("You can't walk off the map silly!");
                 }
+                locations[row][col].getCharacters().remove(gameCharacter);
                 for (int c = col; c <= distance; c++) {
                     locations[row][c].setVisited(true);
-                    if (locations[row][c].getScene().isBlockedLocation()){
+                    if (locations[row][c].getScene().isBlockedLocation()) {
+                        gameCharacter.setLocation(locations[row][c - 1]);
+                        locations[row][c - 1].getCharacters().add(gameCharacter);
                         throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
-                    }   
-                    gameCharacter.setLocation(locations[row][c]);
-                    locations[row][c-1].getCharacters().remove(gameCharacter);
-                    locations[row][c].getCharacters().add(gameCharacter);
+
+                    }
+                    col++;
                 }
+                gameCharacter.setLocation(locations[row][col - 1]);
+                locations[row][col - 1].getCharacters().add(gameCharacter);
                 break;
             case 'S':
                 distance += row;
-                if (distance > 5){
-                    throw new MapControlException ("You can't walk off the map silly!");
+                if (distance > 5) {
+                    throw new MapControlException("You can't walk off the map silly!");
                 }
+                locations[row][col].getCharacters().remove(gameCharacter);
                 for (int r = row; r <= distance; r++) {
                     locations[r][col].setVisited(true);
-                    if (locations[r][col].getScene().isBlockedLocation()){
+                    if (locations[r][col].getScene().isBlockedLocation()) {
+                        gameCharacter.setLocation(locations[r - 1][col]);
+                        locations[r - 1][col].getCharacters().add(gameCharacter);
                         throw new MapControlException("You were blocked by " + locations[r][col].getScene().getDescription());
-                    }   
-                    gameCharacter.setLocation(locations[r][col]);
+
+                    }
+                    row++;
                 }
-                break;
+                gameCharacter.setLocation(locations[row - 1][col]);
+                locations[row - 1][col].getCharacters().add(gameCharacter);
             case 'W':
-              distance -= col;
-              if (distance < 0){
-                    throw new MapControlException ("You can't walk off the map silly!");
+                distance -= col;
+                if (distance < 0) {
+                    throw new MapControlException("You can't walk off the map silly!");
                 }
+                locations[row][col].getCharacters().remove(gameCharacter);
                 for (int c = col; c >= distance; c--) {
                     locations[row][c].setVisited(true);
-                    if (locations[row][c].getScene().isBlockedLocation()){
+                    if (locations[row][c].getScene().isBlockedLocation()) {
+                        gameCharacter.setLocation(locations[row][c + 1]);
+                        locations[row][c + 1].getCharacters().add(gameCharacter);
                         throw new MapControlException("You were blocked by " + locations[row][c].getScene().getDescription());
-                    }   
-                    gameCharacter.setLocation(locations[row][c]);
+
+                    }
+                    col--;
                 }
+                gameCharacter.setLocation(locations[row][col + 1]);
+                locations[row][col + 1].getCharacters().add(gameCharacter);
                 break;
             default:
-                throw new MapControlException ("Something went wrong. We're sorry.");
+                throw new MapControlException("Something went wrong. We're sorry.");
         }
     }
 

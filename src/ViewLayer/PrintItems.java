@@ -5,21 +5,33 @@
  */
 package ViewLayer;
 
+import ModelLayer.Item;
 import ModelLayer.Scene;
+import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
 import shipwreck.Shipwreck;
 
-public class PrintItems{
-    
+public class PrintItems {
+
     private static final PrintWriter itemsFile = Shipwreck.getItemsFile();
-    
-//    public static void displayItems(String itemType, int quantity){
-//    this.console.println();
-//    }
-//
-//    @Override
-//    public boolean doAction(String value) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+
+    public static void printItems() {
+//        System.out.println("PrintItems called");
+        
+        Item[] itemList = Shipwreck.getCurrentGame().getItems();
+        String outputLocation = "itemsFile";
+
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            out.println("\n          *** Inventory Report ***");
+            out.printf("%n%-10s%-5s", "Description", "Quantity");
+            out.printf("%n%-10s%-5s", "-----------", "--------");
+
+            for (Item item : itemList) {
+                out.printf("%n%-10s%-5d", item.getItemType(), item.getQuantity());
+            }
+        } catch (IOException ex) {
+            System.out.println("I/O Error: " + ex.getMessage());
+        }
+    }
 }

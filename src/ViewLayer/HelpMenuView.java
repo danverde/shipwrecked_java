@@ -61,7 +61,7 @@ public class HelpMenuView extends View {
                 this.weatherExplanation();
                 break;
             case "I":
-                this.printItems();
+                PrintItems.printItems();
                 break;
             case "N":
                 this.mapHelp();
@@ -104,22 +104,22 @@ public class HelpMenuView extends View {
         this.console.println("*** weatherExplanation function called***");
     }
 
-    public void printItems() {
-        Item[] itemList = Shipwreck.getCurrentGame().getItems();
-        String outputLocation = "itemsFile";
-        
-        try (PrintWriter out = new PrintWriter(outputLocation)){
-        out.println("\n          *** Inventory Report ***");
-        out.printf("%n%-10s%-5s", "Description", "Quantity");
-        out.printf("%n%-10s%-5s", "-----------", "--------");
-
-        for (Item item : itemList) {
-            out.printf("%n%-10s%-5d", item.getItemType(), item.getQuantity());
-        }
-        }
-        catch (IOException ex){
-            System.out.println("I/O Error: " + ex.getMessage());
-        }
+//    public void printItems() {
+//        Item[] itemList = Shipwreck.getCurrentGame().getItems();
+//        String outputLocation = "itemsFile";
+//        
+//        try (PrintWriter out = new PrintWriter(outputLocation)){
+//        out.println("\n          *** Inventory Report ***");
+//        out.printf("%n%-10s%-5s", "Description", "Quantity");
+//        out.printf("%n%-10s%-5s", "-----------", "--------");
+//
+//        for (Item item : itemList) {
+//            out.printf("%n%-10s%-5d", item.getItemType(), item.getQuantity());
+//        }
+//        }
+//        catch (IOException ex){
+//            System.out.println("I/O Error: " + ex.getMessage());
+//        }
 
     }
 
