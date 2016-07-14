@@ -16,7 +16,7 @@ import java.io.PrintWriter;
  * @author Jack
  */
 public class PrintMap extends View{ 
-    public void printMap(Scene[] scenes, String mapFile ){
+    public static void printMap(Scene[] scenes, String mapFile ){
         try(PrintWriter out = new PrintWriter(mapFile)){
             out.println("\n\n         Map Description        ");
             

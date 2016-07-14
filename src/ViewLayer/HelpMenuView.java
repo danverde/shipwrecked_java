@@ -121,8 +121,6 @@ public class HelpMenuView extends View {
 //            System.out.println("I/O Error: " + ex.getMessage());
 //        }
 
-    }
-
     private void mapHelp() {
         this.console.println("\n\nEnter the file path for where to "
                 + "print this guide");
@@ -130,8 +128,11 @@ public class HelpMenuView extends View {
         try{
             PrintMap.printMap(MapControl.createScenes(), mapFile);
         } catch (Exception ex){
-            ErrorView.display("mapFile", ex.displayMessage());
-        }
+            ErrorView.display("mapFile", ex.getMessage());
+        }}
+
     }
 
-}
+    
+
+

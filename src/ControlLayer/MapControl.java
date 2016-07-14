@@ -12,7 +12,7 @@ import ModelLayer.Map;
 import ModelLayer.Scene;
 import shipwreck.Shipwreck;
 import ModelLayer.Character;
-
+import ModelLayer.ResourceScene;
 /**
  *
  * @author Daniel
