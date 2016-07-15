@@ -12,15 +12,12 @@ import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Map;
 import ModelLayer.Player;
-import ModelLayer.Scene;
-import ModelLayer.Weather;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import shipwreck.Shipwreck;
 import ModelLayer.Character;
-import java.util.ArrayList;
 
 /**
  *

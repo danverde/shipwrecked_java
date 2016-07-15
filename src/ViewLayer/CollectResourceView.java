@@ -5,6 +5,9 @@
  */
 package ViewLayer;
 
+import ModelLayer.Scene;
+import shipwreck.Shipwreck;
+
 /**
  *
  * @author Jack
@@ -20,7 +23,7 @@ public class CollectResourceView extends View {
                   + "\nF – Fruit"
                   + "\nW – Wood"
                   + "\nV – Vines"
-                  + "\nC- Continue On"
+                  + "\nX- Continue On"
                   + "\n----------------------------------");
 }
     
@@ -29,18 +32,18 @@ public class CollectResourceView extends View {
         addIteam = addIteam.toUpperCase();
         switch (addIteam){
             case "F": 
-                this.addTime();
-                this.checkInventory("F");
+//                this.addTime();
+                this.checkLocation("F");
                 this.addIteam();
                 break;
             case "W":
-                this.addTime();
-                this.checkInventory("W");
+//                this.addTime();
+                this.checkLocation("W");
                 this.addIteam();
                 break;
             case "V":
-                this.addTime();
-                this.checkInventory("V");
+//                this.addTime();
+                this.checkLocation("V");
                 this.addIteam();
                 break;
             default:
@@ -51,20 +54,17 @@ public class CollectResourceView extends View {
         return true;
     }
 
-    private void addTime() {
-    this.console.println("\n*** addTime function called ***");
-    }
+//    private void addTime() {
+//    this.console.println("\n*** addTime function called ***");
+//    }
 
-    private void checkInventory() {
-        this.console.println("\n*** checkInventory function called ***");
+    private void checkLocation(String type) {
+//        Scene scene = Shipwreck.getCurrentGame().getPlayer().getCharacter().getLocation().getScene();
+//        if (scene.getResourceType())
     }
 
     private void addIteam() {
         this.console.println("\n*** addIteam function called ***");
-    }
-
-    private void checkInventory(String f) {
-        this.console.println("\n*** checkInventory function called for fruit***");
     }
     
 }

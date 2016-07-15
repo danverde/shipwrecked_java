@@ -13,9 +13,9 @@ import java.io.PrintWriter;
 import static java.lang.System.out;
 import shipwreck.Shipwreck;
 
-public class PrintItems extends View {
+public class PrintItemView extends View {
 
-    public PrintItems() {
+    public PrintItemView() {
         super("\n*** Enter the filename for the Item list. ***");
     }
 

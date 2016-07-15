@@ -9,7 +9,6 @@ import Exceptions.MapControlException;
 import ModelLayer.FightScene;
 import ModelLayer.Location;
 import ModelLayer.Map;
-import ModelLayer.ResourceScene;
 import ModelLayer.Scene;
 import shipwreck.Shipwreck;
 import ModelLayer.Character;
@@ -168,7 +167,7 @@ public class MapControl {
     private static Scene[] createScenes() {
 
         Scene[] scenes = new Scene[Scenes.values().length];
-
+        
         Scene beach = new Scene();
         beach.setDescription("Beach");
         beach.setDisplaySymbol("  B ");
@@ -183,7 +182,7 @@ public class MapControl {
         campScene.setTimeTravel(2);
         scenes[Scenes.Camp.ordinal()] = campScene;
 
-        Scene forestScene = new ResourceScene();
+        Scene forestScene = new Scene();
         forestScene.setDescription("Forest");
         forestScene.setDisplaySymbol("  F ");
         forestScene.setBlockedLocation(false);
@@ -213,7 +212,7 @@ public class MapControl {
         townScene.setTimeTravel(2);
         scenes[Scenes.Town.ordinal()] = townScene;
 
-        ResourceScene stoneScene = new ResourceScene();
+        Scene stoneScene = new Scene();
         stoneScene.setDescription("Stone");
         stoneScene.setDisplaySymbol("  F ");
         stoneScene.setResourceType("Stone");

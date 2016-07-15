@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ModelLayer;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -11,12 +12,15 @@ import java.util.Objects;
  *
  * @author Jack
  */
-public class Scene implements Serializable{
+public class Scene implements Serializable {
+
     private String description;
     private double TimeTravel;
     private boolean blockedLocation;
     public String displaySymbol;
     private Location[] location;
+    private String resourceType;
+    private int resourceAmount;
 
     public Scene() {
     }
@@ -28,9 +32,7 @@ public class Scene implements Serializable{
     public void setLocation(Location[] location) {
         this.location = location;
     }
-    
-    
-    
+
     public String getDescription() {
         return description;
     }
@@ -62,8 +64,24 @@ public class Scene implements Serializable{
     public void setDisplaySymbol(String displaySymbol) {
         this.displaySymbol = displaySymbol;
     }
+
+    public String getResourceType() {
+        return resourceType;
+    }
+
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
+    }
+
+    public int getResourceAmount() {
+        return resourceAmount;
+    }
+
+    public void setResourceAmount(int resourceAmount) {
+        this.resourceAmount = resourceAmount;
+    }
     
-    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -101,16 +119,12 @@ public class Scene implements Serializable{
         return true;
     }
 
-    
     public String toString() {
         return "Scene{" + "description=" + description + ", TimeTravel=" + TimeTravel + ", blockedLocation=" + blockedLocation + ", displaySymbol=" + displaySymbol + '}';
     }
 
     public void setVisited(boolean b) {
-        
+
     }
-    
-    
-    
-    
+
 }
