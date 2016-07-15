@@ -13,7 +13,6 @@ import java.io.PrintWriter;
 import static java.lang.System.out;
 import java.util.ArrayList;
 import shipwreck.Shipwreck;
-import static sun.misc.MessageUtils.out;
 
 /**
  *
@@ -61,7 +60,7 @@ public class HelpMenuView extends View {
                 this.weatherExplanation();
                 break;
             case "I":
-                PrintItems.printItems();
+                this.printItemList();
                 break;
             case "N":
                 this.mapHelp();
@@ -104,34 +103,17 @@ public class HelpMenuView extends View {
         this.console.println("*** weatherExplanation function called***");
     }
 
-//    public void printItems() {
-//        Item[] itemList = Shipwreck.getCurrentGame().getItems();
-//        String outputLocation = "itemsFile";
-//        
-//        try (PrintWriter out = new PrintWriter(outputLocation)){
-//        out.println("\n          *** Inventory Report ***");
-//        out.printf("%n%-10s%-5s", "Description", "Quantity");
-//        out.printf("%n%-10s%-5s", "-----------", "--------");
-//
-//        for (Item item : itemList) {
-//            out.printf("%n%-10s%-5d", item.getItemType(), item.getQuantity());
-//        }
-//        }
-//        catch (IOException ex){
-//            System.out.println("I/O Error: " + ex.getMessage());
-//        }
+    private void printItemList() {
+        PrintItems printItem = new PrintItems();
+        printItem.display();
+    }
 
     private void mapHelp() {
-        this.console.println("\n\nEnter the file path for where to "
-                + "print this guide");
-        String mapFile = this.getInput();
-        try{
-            PrintMap.printMap(MapControl.createScenes(), mapFile);
-        } catch (Exception ex){
-            ErrorView.display("mapFile", ex.getMessage());
-        }}
-
+        PrintMap printMap = new PrintMap();
+        printMap.display();
+        }
     }
+    
 
     
 

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ModelLayer;
+import ViewLayer.fightView;
 import java.io.Serializable;
 /**
  *
@@ -12,6 +13,9 @@ import java.io.Serializable;
 public class FightScene extends Scene implements Serializable{
 
     public FightScene() {
+        if (setLocation([][]) == FightScene(Location[] []))
+        fightView fightView = new fightView();
+        fightView.display();
     }
     
     

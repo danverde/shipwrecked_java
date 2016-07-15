@@ -193,7 +193,7 @@ public class MapControl {
         Scene enemyScene = new FightScene();
         enemyScene.setDescription("Look out for that enemy. Don't get killed.");
         enemyScene.setDisplaySymbol("  E ");
-        enemyScene.setBlockedLocation(false);
+        enemyScene.setBlockedLocation(true);
         enemyScene.setTimeTravel(2);
         scenes[Scenes.Enemy.ordinal()] = enemyScene;
 
