@@ -58,6 +58,7 @@ public class GameControl {
         Map map = MapControl.createMap();//create new map
         game.setMap(map);//save map
         
+        
         Character gameCharacter = GameControl.createGameCharacter(player, map);
         game.getPlayer().setCharacter(gameCharacter);
         

@@ -1,0 +1,12 @@
+
+
+         Map Description        
+
+  C Camp                                    
+  F Forest                                  
+  E Look out for that enemy. Don't get killed.
+ CL Cliffs                                  
+  T Town                                    
+  F Stone                                   
+  B Beach                                   
+  W Water                                   

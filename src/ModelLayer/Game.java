@@ -18,9 +18,12 @@ public class Game implements Serializable {
     private Item[] items;
     private Food[] foodStuff;
     private Enemy[] enemy;
+    public Scene[] scenes;
 
     public Game() {
     }
+
+    
 
     public Enemy[] getEnemy() {
         return enemy;
@@ -78,6 +81,14 @@ public class Game implements Serializable {
     public void setMap(Map map) {
         this.map = map;
     }
+    public Scene[] getScenes() {
+        return scenes;
+    }
+
+    public void setScenes(Scene[] scenes) {
+        this.scenes = scenes;
+    }
+    
     
     
 

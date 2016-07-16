@@ -24,12 +24,12 @@ public class PrintMap extends View{
 
     @Override
     public boolean doAction(String filePath) {
-        Scene[] scenes = MapControl.createScenes();
+        Scene[] scenes = Shipwreck.getCurrentGame().getScenes();
         try (PrintWriter out = new PrintWriter(filePath)){
             out.println("\n\n         Map Description        ");
             
             for (Scene scene : scenes){
-            out.printf("%n%-4s%40s0",scene.getDisplaySymbol()
+            out.printf("%n%-4s%-40s",scene.getDisplaySymbol()
                        , scene.getDescription());
             }
                     

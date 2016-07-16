@@ -18,11 +18,14 @@ import ModelLayer.ResourceScene;
  * @author Daniel
  */
 public class MapControl {
-
+    
     public static Map createMap() {
+        Scene[] scenes = createScenes();
+        Shipwreck.getCurrentGame().setScenes(createScenes());
         Map map = new Map(5, 5);
 
-        Scene[] scenes = createScenes();
+
+        
         MapControl.assignSceneLocations(map, scenes);
 
         return map;
@@ -118,7 +121,6 @@ public class MapControl {
     }
 
     public enum Scenes {
-        Starting,
         Camp,
         Forest,
         Enemy,
@@ -182,7 +184,7 @@ public class MapControl {
         campScene.setTimeTravel(2);
         scenes[Scenes.Camp.ordinal()] = campScene;
 
-        Scene forestScene = new ResourceScene();
+        Scene forestScene = new Scene();
         forestScene.setDescription("Forest");
         forestScene.setDisplaySymbol("  F ");
         forestScene.setBlockedLocation(false);
@@ -230,3 +232,4 @@ public class MapControl {
         return scenes;
     }
 }
+
