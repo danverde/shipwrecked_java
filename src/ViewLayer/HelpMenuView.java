@@ -31,7 +31,6 @@ public class HelpMenuView extends View {
                 + "\nR - Resource Help"
                 + "\nK - Combat Help"
                 + "\nB - Building Help"
-                + "\nW - Weather Explanation"
                 + "\nI - Print Current Item List"
                 + "\nX - Continue On"
                 + "\n----------------------------------");
@@ -55,9 +54,6 @@ public class HelpMenuView extends View {
                 break;
             case "B":
                 this.buildingHelp();
-                break;
-            case "W":
-                this.weatherExplanation();
                 break;
             case "I":
                 this.printItemList();
@@ -84,7 +80,12 @@ public class HelpMenuView extends View {
     }
 
     private void movementHelp() {
-        this.console.println("*** movementHelp function called***");
+        this.console.println("\n************************************************************************"
+                           + "\nWhile in the game you can move your character by entering 'L'."
+                           + "\n You will then be prompted to enter a direction & distance. You must"
+                           + "\n enter a single direction, (N,E,S,W) followed by a comma and a distance."
+                           + "\n Your distance cannot be greater than 5."
+                           + "\n************************************************************************");
     }
 
     private void resourceHelp() {
@@ -98,14 +99,14 @@ public class HelpMenuView extends View {
     private void buildingHelp() {
         this.console.println("*** buildingHelp function called***");
     }
-
-    private void weatherExplanation() {
-        this.console.println("*** weatherExplanation function called***");
-    }
-
+    
     private void printItemList() {
-        PrintItems printItem = new PrintItems();
-        printItem.display();
+        try {
+            PrintItemView printItem = new PrintItemView();
+            printItem.display();
+        } catch (Exception ex) {
+            ErrorView.display("You Must create a game First!", ex.getMessage());
+        }
     }
 
     private void mapHelp() {

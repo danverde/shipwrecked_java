@@ -169,7 +169,7 @@ public class MapControl {
     public static Scene[] createScenes() {
 
         Scene[] scenes = new Scene[Scenes.values().length];
-
+        
         Scene beach = new Scene();
         beach.setDescription("Beach");
         beach.setDisplaySymbol("  B ");
@@ -214,7 +214,7 @@ public class MapControl {
         townScene.setTimeTravel(2);
         scenes[Scenes.Town.ordinal()] = townScene;
 
-        ResourceScene stoneScene = new ResourceScene();
+        Scene stoneScene = new Scene();
         stoneScene.setDescription("Stone");
         stoneScene.setDisplaySymbol("  F ");
         stoneScene.setResourceType("Stone");
