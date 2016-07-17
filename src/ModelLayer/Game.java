@@ -16,7 +16,7 @@ public class Game implements Serializable {
     private Map map;
     private Player player;
     private Item[] items;
-    private Food[] foodStuff;
+    private Food[] foodList;
     private Enemy[] enemy;
     public Scene[] scenes;
 
@@ -33,12 +33,12 @@ public class Game implements Serializable {
         this.enemy = enemy;
     }
 
-    public Food[] getFoodStuff() {
-        return foodStuff;
+    public Food[] getFoodList() {
+        return foodList;
     }
 
-    public void setFoodStuff(Food[] foodStuff) {
-        this.foodStuff = foodStuff;
+    public void setFoodList(Food[] foodList) {
+        this.foodList = foodList;
     }
     
 

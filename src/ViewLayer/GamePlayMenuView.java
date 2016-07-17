@@ -125,7 +125,7 @@ public class GamePlayMenuView extends View {
         StringBuilder line;
 
         Game game = Shipwreck.getCurrentGame();
-        Food[] foods = game.getFoodStuff();
+        Food[] foods = game.getFoodList();
 
         this.console.println("\nLIST OF FOOD ITEMS.");
         line = new StringBuilder("                                        ");
@@ -137,11 +137,10 @@ public class GamePlayMenuView extends View {
         for (Food food : foods) {
             line = new StringBuilder("                            ");
             line.insert(0, food.getFoodType());
-            line.insert(20, food.getQuanitiy());
+            line.insert(20, food.getQuantiy());
             line.insert(33, food.getHungerFilled());
             this.console.println(line.toString());
         }
-        this.console.println(GameControl.sumList(foods));
     }
 
     private void getResources() {

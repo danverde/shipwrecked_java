@@ -13,16 +13,16 @@ import java.util.Objects;
  * @author Jack
  */
 public class Food implements Serializable  {
-    private int quanitiy;
+    private int quantiy;
     private String foodType;
     public int hungerFilled;
 
-    public int getQuanitiy() {
-        return quanitiy;
+    public int getQuantiy() {
+        return quantiy;
     }
 
-    public void setQuanitiy(int quanitiy) {
-        this.quanitiy = quanitiy;
+    public void setQuantiy(int quantiy) {
+        this.quantiy = quantiy;
     }
 
     public String getFoodType() {
@@ -44,7 +44,7 @@ public class Food implements Serializable  {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 73 * hash + this.quanitiy;
+        hash = 73 * hash + this.quantiy;
         hash = 73 * hash + Objects.hashCode(this.foodType);
         hash = 73 * hash + this.hungerFilled;
         return hash;
@@ -62,7 +62,7 @@ public class Food implements Serializable  {
             return false;
         }
         final Food other = (Food) obj;
-        if (this.quanitiy != other.quanitiy) {
+        if (this.quantiy != other.quantiy) {
             return false;
         }
         if (this.hungerFilled != other.hungerFilled) {
@@ -76,7 +76,7 @@ public class Food implements Serializable  {
 
     @Override
     public String toString() {
-        return "Food{" + "quanitiy=" + quanitiy + ", foodType=" + foodType + ", hungerFilled=" + hungerFilled + '}';
+        return "Food{" + "quanitiy=" + quantiy + ", foodType=" + foodType + ", hungerFilled=" + hungerFilled + '}';
     }
     
     

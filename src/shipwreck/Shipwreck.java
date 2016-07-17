@@ -12,7 +12,6 @@ import ModelLayer.Player;
 import ModelLayer.Scene;
 import ModelLayer.Character;
 import ModelLayer.Weather;
-import ModelLayer.ResourceScene;
 import ModelLayer.Inventory;
 import ModelLayer.Item;
 import ModelLayer.Fire;

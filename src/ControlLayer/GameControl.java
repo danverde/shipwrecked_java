@@ -47,7 +47,7 @@ public class GameControl {
         game.setItems(itemList);
 
         Food[] foodList = GameControl.createFoodList(player);
-        game.setFoodStuff(foodList);
+        game.setFoodList(foodList);
 
         game.setTime(0);//save time
         game.setBestTime(0); //save best timeMap map = MapControl.createMap;//create new map
@@ -131,7 +131,7 @@ public class GameControl {
 
         Item match = new Item();
         match.setItemType("Match");
-        match.setQuantity(0);
+        match.setQuantity(3);
         itemList[Items.Match.ordinal()] = match;
 
         Item vine = new Item();
@@ -158,19 +158,19 @@ public class GameControl {
 
         Food meat = new Food();
         meat.setFoodType("Meat");
-        meat.setQuanitiy(0);
+        meat.setQuantiy(0);
         meat.setHungerFilled(5);
         foodList[FoodStuff.Meat.ordinal()] = meat;
 
         Food fruit = new Food();
         fruit.setFoodType("Fruit");
-        fruit.setQuanitiy(4);
+        fruit.setQuantiy(4);
         fruit.setHungerFilled(2);
         foodList[FoodStuff.Fruit.ordinal()] = fruit;
 
         Food fish = new Food();
         fish.setFoodType("Fish");
-        fish.setQuanitiy(0);
+        fish.setQuantiy(0);
         fish.setHungerFilled(4);
         foodList[FoodStuff.Fish.ordinal()] = fish;
 
