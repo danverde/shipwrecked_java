@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package ModelLayer;
-import ControlLayer.MapControl;
-import ViewLayer.fightView;
 import java.io.Serializable;
 /**
  *

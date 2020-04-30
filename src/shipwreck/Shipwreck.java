@@ -6,16 +6,7 @@
 package shipwreck;
 
 import ModelLayer.Game;
-import ModelLayer.Location;
-import ModelLayer.Map;
 import ModelLayer.Player;
-import ModelLayer.Scene;
-import ModelLayer.Character;
-import ModelLayer.Weather;
-import ModelLayer.Inventory;
-import ModelLayer.Item;
-import ModelLayer.Fire;
-import ModelLayer.Enemy;
 import ViewLayer.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;

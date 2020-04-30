@@ -5,10 +5,8 @@
  */
 package ViewLayer;
 
-import ControlLayer.MapControl;
 import ModelLayer.Scene;
 import shipwreck.Shipwreck;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 

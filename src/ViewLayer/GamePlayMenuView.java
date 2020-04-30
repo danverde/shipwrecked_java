@@ -6,15 +6,10 @@
 package ViewLayer;
 
 import ControlLayer.GameControl;
-import ControlLayer.GameControl.FoodStuff;
-import static ControlLayer.GameControl.sumList;
-import ControlLayer.MapControl;
 import ModelLayer.Food;
 import ModelLayer.Game;
 import ModelLayer.Item;
 import ModelLayer.Location;
-import ModelLayer.Map;
-import ModelLayer.Player;
 import ModelLayer.Scene;
 import shipwreck.Shipwreck;
 

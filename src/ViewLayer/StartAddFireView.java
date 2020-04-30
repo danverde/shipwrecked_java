@@ -7,7 +7,6 @@ package ViewLayer;
 
 import ControlLayer.FireControl;
 import Exceptions.FireControlException;
-import java.util.Scanner;
 
 /**
  *

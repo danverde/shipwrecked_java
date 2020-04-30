@@ -13,7 +13,7 @@ import Exceptions.FloatControlException;
  *
  * @author Jack
  */
-public class FloatingConrtol {
+public class FloatingControl {
     public static boolean verifyBouyency (int  characterWeight, int logAmount) 
             throws FloatControlException{
     // If (characterWeight < 59 or >201)

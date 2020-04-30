@@ -5,7 +5,7 @@
  */
 package ViewLayer;
 
-import ControlLayer.FloatingConrtol;
+import ControlLayer.FloatingControl;
 import Exceptions.FloatControlException;
 
 /**
@@ -23,7 +23,7 @@ public class RaftView extends View{
             
             int logAmount = Integer.parseInt(logAmountN);
             
-            boolean raftSuccess = FloatingConrtol.verifyBouyency(100, logAmount);
+            boolean raftSuccess = FloatingControl.verifyBouyency(100, logAmount);
             this.console.println(raftSuccess);
             return true; 
         }

@@ -8,6 +8,9 @@ package ControlLayer;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import Exceptions.FireControlException;
+
 import static org.junit.Assert.*;
 
 /**
@@ -29,27 +32,27 @@ public class FireControlTest {
 
     /**
      * Test of calculateBurnTime method, of class FireControl.
+     * @throws FireControlException 
      */
     @Test
-    public void testCalculateBurnTime() {
+    public void testCalculateBurnTime() throws FireControlException {
         System.out.println("calculateBurnTime");
         System.out.println("Test1");
         int woodAmount = 4;
-        FireControl instance = new FireControl();
         float expResult = 6.0F;
-        float result = instance.calculateBurnTime(woodAmount);
+        float result = FireControl.calculateBurnTime(woodAmount);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test2");
         woodAmount = 0;
         expResult = -1.0F;
-        result = instance.calculateBurnTime(woodAmount);
+        result = FireControl.calculateBurnTime(woodAmount);
         assertEquals(expResult, result, 0.0);
         
         System.out.println("Test3");
         woodAmount = 1;
         expResult = 1.5F;
-        result = instance.calculateBurnTime(woodAmount);
+        result = FireControl.calculateBurnTime(woodAmount);
         assertEquals(expResult, result, 0.0);
     }
     

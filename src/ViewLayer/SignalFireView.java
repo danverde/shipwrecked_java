@@ -5,9 +5,6 @@
  */
 package ViewLayer;
 
-import ModelLayer.Fire;
-import java.util.Scanner;
-
 /**
  *
  * @author Daniel

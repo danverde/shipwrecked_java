@@ -85,8 +85,8 @@ public class CollectResourceView extends View {
 
     }
 
-    private void addIteam() {
-        this.console.println("\n*** addIteam function called ***");
+    private void addItem() {
+        this.console.println("\n*** addItem function called ***");
     }
 
     private void addStone(String v) {

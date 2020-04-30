@@ -5,7 +5,8 @@
  */
 package ControlLayer;
 
-import ControlLayer.CharecterControl;
+import Exceptions.CharacterControlException;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -30,9 +31,10 @@ public class CharecterControlTest {
 
     /**
      * Test of calcDamage method, of class CharecterControl.
+     * @throws CharacterControlException 
      */
     @Test
-    public void testCalcDamage() {
+    public void testCalcDamage() throws CharacterControlException {
         System.out.println("calcDamage");
         System.out.println("Test1");
         int enemyDefence = 3;

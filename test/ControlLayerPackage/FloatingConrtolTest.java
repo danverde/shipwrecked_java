@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package ControlLayerPackage;
+import ControlLayer.FloatingControl;
+import Exceptions.FloatControlException;
 
-import ControlLayer.FloatingConrtol;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -30,79 +31,72 @@ public class FloatingConrtolTest {
 
     /**
      * Test of verifyBouyency method, of class FloatingConrtol.
+     * @throws FloatControlException 
      */
     @Test
-    public void testVerifyBouyency() {
+    public void testVerifyBouyency() throws FloatControlException {
         System.out.println("verifyBouyency");
         System.out.println("Test1");
         int characterWeight = 70;
         int logAmount = 4;
-        FloatingConrtol instance = new FloatingConrtol();
-        String expResult = "True";
-        String result = instance.verifyBouyency(characterWeight, logAmount);
+        Boolean expResult = true;
+        Boolean result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
         System.out.println("verifyBouyency");
         System.out.println("Test2");
         characterWeight = 70;
         logAmount = 0;
-        instance = new FloatingConrtol();
-        expResult = "-2";
-        result = instance.verifyBouyency(characterWeight, logAmount);
+        expResult = false;
+        result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
         System.out.println("verifyBouyency");
         System.out.println("Test3");
         characterWeight = 59;
         logAmount = 4;
-        instance = new FloatingConrtol();
-        expResult = "-1";
-        result = instance.verifyBouyency(characterWeight, logAmount);
+        expResult = false;
+        result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
         System.out.println("verifyBouyency");
         System.out.println("Test4");
         characterWeight = 201;
         logAmount = 4;
-        instance = new FloatingConrtol();
-        expResult = "-1";
-        result = instance.verifyBouyency(characterWeight, logAmount);
+        expResult = false;
+        result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
         System.out.println("verifyBouyency");
         System.out.println("Test5");
         characterWeight = 60;
         logAmount = 4;
-        instance = new FloatingConrtol();
-        expResult = "True";
-        result = instance.verifyBouyency(characterWeight, logAmount);
+        expResult = true;
+        result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
         System.out.println("verifyBouyency");
         System.out.println("Test6");
         characterWeight = 200;
         logAmount = 2;
-        instance = new FloatingConrtol();
-        expResult = "False";
-        result = instance.verifyBouyency(characterWeight, logAmount);
+        expResult = false;
+        result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
         System.out.println("verifyBouyency");
         System.out.println("Test7");
         characterWeight = 100;
         logAmount = 1;
-        instance = new FloatingConrtol();
-        expResult = "True";
-        result = instance.verifyBouyency(characterWeight, logAmount);
+        expResult = true;
+        result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
-         System.out.println("verifyBouyency");
+        System.out.println("verifyBouyency");
         System.out.println("Test8");
         characterWeight = 100;
         logAmount = 5;
-        instance = new FloatingConrtol();
-        expResult = "True";
-        result = instance.verifyBouyency(characterWeight, logAmount);
+        expResult = true;
+        result = FloatingControl.verifyBouyency(characterWeight, logAmount);
         assertEquals(expResult, result);
         
         

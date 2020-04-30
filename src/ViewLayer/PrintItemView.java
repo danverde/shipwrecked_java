@@ -5,12 +5,9 @@
  */
 package ViewLayer;
 
-import ControlLayer.GameControl;
 import ModelLayer.Item;
-import ModelLayer.Scene;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import shipwreck.Shipwreck;
 
 public class PrintItemView extends View {

@@ -5,15 +5,6 @@
  */
 package ViewLayer;
 
-import ControlLayer.MapControl;
-import ModelLayer.Item;
-import ModelLayer.Scene;
-import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.util.ArrayList;
-import shipwreck.Shipwreck;
-
 /**
  *
  * @author Daniel

@@ -5,8 +5,6 @@
  */
 package ViewLayer;
 
-import Exceptions.CharacterControlException;
-
 /**
  *
  * @author Daniel

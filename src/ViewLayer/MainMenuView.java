@@ -6,7 +6,6 @@
 package ViewLayer;
 
 import ControlLayer.GameControl;
-import java.util.Scanner;
 import shipwreck.Shipwreck;
 
 /**
